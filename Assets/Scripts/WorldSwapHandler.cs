@@ -5,8 +5,16 @@ using UnityEngine.Events;
 public class WorldSwapHandler : MonoSingleton<WorldSwapHandler>
 {
     [SerializeField] private float _timeBetweenSwaps = 5.0f;
+    [SerializeField] private int _amountOfFlickers = 4;
+    [SerializeField] private float _flickerDuration = 0.2f;
+
+    private bool _isInCyberpunkWorld = true;
+    public bool IsInCyberpunkWorld { get { return _isInCyberpunkWorld; } }
 
     public UnityEvent OnWorldSwap = new UnityEvent();
+    public UnityEvent OnNewWorldFlicker = new UnityEvent();
+    public UnityEvent OnCurrentWorldBackFlicker = new UnityEvent();
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,17 +22,21 @@ public class WorldSwapHandler : MonoSingleton<WorldSwapHandler>
         StartCoroutine(WorldSwapCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator WorldSwapCoroutine()
     {
         while(true)
         {
-            yield return new WaitForSeconds(_timeBetweenSwaps);
+            yield return new WaitForSeconds(_timeBetweenSwaps - (_amountOfFlickers * 2 * _flickerDuration));
+
+            for(int flickerCounter = 0; flickerCounter < _amountOfFlickers; ++flickerCounter)
+            {
+                OnNewWorldFlicker?.Invoke();
+                yield return new WaitForSeconds(_flickerDuration);
+                OnCurrentWorldBackFlicker?.Invoke();
+                yield return new WaitForSeconds(_flickerDuration);
+            }
+
+            _isInCyberpunkWorld = !_isInCyberpunkWorld;
             OnWorldSwap?.Invoke();
         }   
     }

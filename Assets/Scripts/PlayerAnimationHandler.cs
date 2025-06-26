@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAnimationHandler : MonoBehaviour
 {
     [SerializeField] private AnimatorOverrideController _medievalControllerOverride;
+    private RuntimeAnimatorController _defaultController;
     private Animator _animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -10,6 +11,11 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
         _animator = GetComponent<Animator>();
+        _defaultController = _animator.runtimeAnimatorController;
+
+        PlayerMovementComponent playerMovement = GetComponent<PlayerMovementComponent>();
+        playerMovement.OnMovementBegin.AddListener(OnMovementBegin);
+        playerMovement.OnMovementEnd.AddListener(OnMovementEnd);
     }
 
     // Update is called once per frame
@@ -20,6 +26,17 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     void OnWorldSwap()
     {
-        _animator.runtimeAnimatorController = _medievalControllerOverride;
+        if (WorldSwapHandler.Instance.IsInCyberpunkWorld) _animator.runtimeAnimatorController = _defaultController;
+        else _animator.runtimeAnimatorController = _medievalControllerOverride;
+    }
+
+    void OnMovementBegin()
+    {
+        _animator.SetBool("IsMoving", true);
+    }
+
+    void OnMovementEnd()
+    {
+        _animator.SetBool("IsMoving", false);
     }
 }

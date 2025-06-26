@@ -594,6 +594,8 @@ GameObject:
   - component: {fileID: 1432794589}
   - component: {fileID: 1432794588}
   - component: {fileID: 1432794591}
+  - component: {fileID: 1432794593}
+  - component: {fileID: 1432794592}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -745,8 +747,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baf5cc7e4b8ffc48a2449fa577aedc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 200
+  _speed: 4
   _jumpStrength: 4
+  OnMovementBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1432794590
 Rigidbody2D:
   serializedVersion: 5
@@ -820,6 +828,41 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1432794592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432794584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057f270a0f1ca4747bb1d78e66b37505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _medievalControllerOverride: {fileID: 22100000, guid: 0f53fc86ddaf97442bbd4822c1bf2cba, type: 2}
+--- !u!95 &1432794593
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432794584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b26f6b5b89121ea43be354e79a697d1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
