@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletComponent : MonoBehaviour
 {
-    private float _speed = 7f;
+    private float _speed = 6f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
