@@ -9,6 +9,7 @@ public class PlayerMovementComponent : MonoBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _jumpStrength = 5f;
 
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private float _inputMoveDirection;
     private bool _isGrounded;
@@ -16,6 +17,7 @@ public class PlayerMovementComponent : MonoBehaviour
     private bool _isJumping;
 
     private ShootComponent _shootComponent;
+    private PlayerWeaponRotateComponent _weaponRotateComponent;
 
     public UnityEvent OnMovementBegin = new UnityEvent();
     public UnityEvent OnMovementEnd = new UnityEvent();
@@ -27,7 +29,9 @@ public class PlayerMovementComponent : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _shootComponent = GetComponentInChildren<ShootComponent>(); 
+        _shootComponent = GetComponentInChildren<ShootComponent>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _weaponRotateComponent = GetComponentInChildren<PlayerWeaponRotateComponent>();
     }
 
     // Update is called once per frame
@@ -52,7 +56,16 @@ public class PlayerMovementComponent : MonoBehaviour
         else
         {
             _inputMoveDirection = context.ReadValue<float>();
-            //_shootComponent.SetDirection(new Vector2(_inputMoveDirection, 0));
+            if(_inputMoveDirection < 0.0f)
+            {
+                _spriteRenderer.flipX = true;
+                _weaponRotateComponent.FlipLeft();
+            }
+            else
+            {
+                _spriteRenderer.flipX = false;
+                _weaponRotateComponent.FlipRight();
+            }
             if(context.started) OnMovementBegin?.Invoke();
         }
     }

@@ -6,6 +6,8 @@ public class PlayerGunAnimationHandler : MonoBehaviour
     [SerializeField] private AnimatorOverrideController _cyberpunkWeaponControllerOverride;
     private Animator _weaponAnimator;
 
+    private const float ShootTime = 0.3f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,5 +60,11 @@ public class PlayerGunAnimationHandler : MonoBehaviour
     void OnShoot()
     {
         _weaponAnimator.SetBool("IsShooting", true);
+        Invoke("StopShoot", ShootTime);
+    }
+
+    private void StopShoot()
+    {
+        _weaponAnimator.SetBool("IsShooting", false);
     }
 }
