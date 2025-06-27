@@ -6,8 +6,9 @@ public class ShootComponent : MonoBehaviour
     [SerializeField] private float _fireRate;
     [SerializeField] private bool _shouldShoot; //for eg traps that just always shoot
     [SerializeField] private float _offset = 0.6f;
+    [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
     private float _accumulatedTime;
-    private Vector3 _direction = new Vector3(1, 0, 0);
+    
 
 
     void Update()
