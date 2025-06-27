@@ -1,25 +1,34 @@
 fileFormatVersion: 2
-guid: 651471c9a186db84f9baa288e64c7671
+guid: b75ca5d63257f154da38b87640e16d7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1219461772793366878
-    second: Owlet_Monster_Walk_6_0
+      213: -8523345016828196512
+    second: Player_Future_Jump_0
   - first:
-      213: -5904749848338885649
-    second: Owlet_Monster_Walk_6_1
+      213: 4176636041453424240
+    second: Player_Future_Jump_1
   - first:
-      213: -7116724182296576392
-    second: Owlet_Monster_Walk_6_2
+      213: 5327400562742284270
+    second: Player_Future_Jump_2
   - first:
-      213: -7080676517566628892
-    second: Owlet_Monster_Walk_6_3
+      213: 1649692289800350016
+    second: Player_Future_Jump_3
   - first:
-      213: 8149858019907775536
-    second: Owlet_Monster_Walk_6_4
+      213: -1381952685715185908
+    second: Player_Future_Jump_4
   - first:
-      213: -562083379289738105
-    second: Owlet_Monster_Walk_6_5
+      213: 5921434866073857713
+    second: Player_Future_Jump_5
+  - first:
+      213: 307101829831016457
+    second: Player_Future_Jump_6
+  - first:
+      213: 8276009006452993055
+    second: Player_Future_Jump_7
+  - first:
+      213: -5036227489486255232
+    second: Player_Future_Jump_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +137,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_0
+      name: Player_Future_Jump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 8
+        y: 255
+        width: 15
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e59448875066ce010800000000000000
-      internalID: 1219461772793366878
+      spriteID: 0690cd5addef6b980800000000000000
+      internalID: -8523345016828196512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_1
+      name: Player_Future_Jump_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 6
+        y: 223
+        width: 20
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe318323c4d1e0ea0800000000000000
-      internalID: -5904749848338885649
+      spriteID: 07ecce6d95466f930800000000000000
+      internalID: 4176636041453424240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_2
+      name: Player_Future_Jump_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 6
+        y: 191
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87eb7cdef015c3d90800000000000000
-      internalID: -7116724182296576392
+      spriteID: eef4876069abee940800000000000000
+      internalID: 5327400562742284270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_3
+      name: Player_Future_Jump_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 9
+        y: 162
+        width: 15
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ebbdf8e8326cbd90800000000000000
-      internalID: -7080676517566628892
+      spriteID: 049204aa562e4e610800000000000000
+      internalID: 1649692289800350016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_4
+      name: Player_Future_Jump_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
+        x: 8
+        y: 134
+        width: 16
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +240,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03ca87670bc1a1170800000000000000
-      internalID: 8149858019907775536
+      spriteID: c0f9c8faa5152dce0800000000000000
+      internalID: -1381952685715185908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Walk_6_5
+      name: Player_Future_Jump_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
+        x: 9
+        y: 103
+        width: 15
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +262,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 784b84305241338f0800000000000000
-      internalID: -562083379289738105
+      spriteID: 1bee1f833a92d2250800000000000000
+      internalID: 5921434866073857713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Future_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 67
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90043f4bc7b034400800000000000000
+      internalID: 307101829831016457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Future_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 31
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c609bd75a4ad270800000000000000
+      internalID: 8276009006452993055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_Future_Jump_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b4d1908c9bb1ab0800000000000000
+      internalID: -5036227489486255232
       vertices: []
       indices: 
       edges: []
@@ -263,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4b993a62622774e4792b9ab3accc5155
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -271,16 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Owlet_Monster_Walk_6_0: 1219461772793366878
-      Owlet_Monster_Walk_6_1: -5904749848338885649
-      Owlet_Monster_Walk_6_2: -7116724182296576392
-      Owlet_Monster_Walk_6_3: -7080676517566628892
-      Owlet_Monster_Walk_6_4: 8149858019907775536
-      Owlet_Monster_Walk_6_5: -562083379289738105
+      Player_Future_Jump_0: -8523345016828196512
+      Player_Future_Jump_1: 4176636041453424240
+      Player_Future_Jump_2: 5327400562742284270
+      Player_Future_Jump_3: 1649692289800350016
+      Player_Future_Jump_4: -1381952685715185908
+      Player_Future_Jump_5: 5921434866073857713
+      Player_Future_Jump_6: 307101829831016457
+      Player_Future_Jump_7: 8276009006452993055
+      Player_Future_Jump_8: -5036227489486255232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 12d39c05af91d2e4c853c3c2c60ec2b6
+guid: 04404212e02cca64c994f7b5751719c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4988797014474009180
-    second: Pink_Monster_Walk_6_0
+      213: 3765934255238438160
+    second: Player_Future_Idle_Aim_0
   - first:
-      213: -4114854856959736440
-    second: Pink_Monster_Walk_6_1
+      213: -5026836853658197184
+    second: Player_Future_Idle_Aim_1
   - first:
-      213: 8852617987441630179
-    second: Pink_Monster_Walk_6_2
+      213: -695285810759122685
+    second: Player_Future_Idle_Aim_2
   - first:
-      213: 2928625931318688351
-    second: Pink_Monster_Walk_6_3
-  - first:
-      213: 7152728969252384440
-    second: Pink_Monster_Walk_6_4
-  - first:
-      213: 1435900599014651832
-    second: Pink_Monster_Walk_6_5
+      213: 1324925089815287398
+    second: Player_Future_Idle_Aim_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pink_Monster_Walk_6_0
+      name: Player_Future_Idle_Aim_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 10
+        y: 95
+        width: 13
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5aa040f374cb3540800000000000000
-      internalID: 4988797014474009180
+      spriteID: 01d56fa9049434430800000000000000
+      internalID: 3765934255238438160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pink_Monster_Walk_6_1
+      name: Player_Future_Idle_Aim_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 10
+        y: 63
+        width: 13
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 885cf9c1f4915e6c0800000000000000
-      internalID: -4114854856959736440
+      spriteID: 0436cd1d3861d3ab0800000000000000
+      internalID: -5026836853658197184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pink_Monster_Walk_6_2
+      name: Player_Future_Idle_Aim_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 10
+        y: 31
+        width: 13
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3eb11b90821dada70800000000000000
-      internalID: 8852617987441630179
+      spriteID: 30145582d39d956f0800000000000000
+      internalID: -695285810759122685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pink_Monster_Walk_6_3
+      name: Player_Future_Idle_Aim_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 10
         y: 0
-        width: 32
-        height: 32
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,52 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5a7f3c94c194a820800000000000000
-      internalID: 2928625931318688351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pink_Monster_Walk_6_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8be2feac919934360800000000000000
-      internalID: 7152728969252384440
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pink_Monster_Walk_6_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b7f901bcf75de310800000000000000
-      internalID: 1435900599014651832
+      spriteID: 66651747954136210800000000000000
+      internalID: 1324925089815287398
       vertices: []
       indices: 
       edges: []
@@ -263,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 58b8779cce7dd5849aa2babb34804b0a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -271,16 +221,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Pink_Monster_Walk_6_0: 4988797014474009180
-      Pink_Monster_Walk_6_1: -4114854856959736440
-      Pink_Monster_Walk_6_2: 8852617987441630179
-      Pink_Monster_Walk_6_3: 2928625931318688351
-      Pink_Monster_Walk_6_4: 7152728969252384440
-      Pink_Monster_Walk_6_5: 1435900599014651832
+      Player_Future_Idle_Aim_0: 3765934255238438160
+      Player_Future_Idle_Aim_1: -5026836853658197184
+      Player_Future_Idle_Aim_2: -695285810759122685
+      Player_Future_Idle_Aim_3: 1324925089815287398
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
