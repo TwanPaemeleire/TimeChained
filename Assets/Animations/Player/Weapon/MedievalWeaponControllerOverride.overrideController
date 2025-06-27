@@ -9,7 +9,7 @@ AnimatorOverrideController:
   m_Name: MedievalWeaponControllerOverride
   m_Controller: {fileID: 9100000, guid: ee50a58c417a04e468042ddaf8442a0d, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: eddd2d5acc04e33479468bf6a56a50ec, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: eddd2d5acc04e33479468bf6a56a50ec, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: e02f9b051ec49154da1a79bbacd0d56e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e02f9b051ec49154da1a79bbacd0d56e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d117ff574516f0049b026c83e0da9487, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d117ff574516f0049b026c83e0da9487, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3391becaa122b4e48831165c1d16aff3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3391becaa122b4e48831165c1d16aff3, type: 2}

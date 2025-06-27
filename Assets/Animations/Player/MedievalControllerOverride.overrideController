@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: MedievalControllerOverride
   m_Controller: {fileID: 9100000, guid: b26f6b5b89121ea43be354e79a697d1c, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: d77fee2c096669442bc0fcd935d771a8, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 337bf0ddc0d8a6b4aa84d664c3011612, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b5a1112944598b64383227773a247c21, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 7b4be50e7fd45824c820c236a0dbbebd, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: f9304142e460cc04db7bb5d71ea35b46, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: f9304142e460cc04db7bb5d71ea35b46, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 138d13535f7ffe644a4723e5cb37aad0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 138d13535f7ffe644a4723e5cb37aad0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 81c7a22c289b86c439af8439620ffb02, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81c7a22c289b86c439af8439620ffb02, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 128573b411ce127448cfed35193cffa7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 128573b411ce127448cfed35193cffa7, type: 2}
