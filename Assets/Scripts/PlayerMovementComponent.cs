@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,6 +12,9 @@ public class PlayerMovementComponent : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private float _inputMoveDirection;
     private bool _isGrounded;
+    private bool _canDoubleJump;
+
+    private ShootComponent _shootComponent;
 
     public UnityEvent OnMovementBegin = new UnityEvent();
     public UnityEvent OnMovementEnd = new UnityEvent(); 
@@ -19,6 +23,7 @@ public class PlayerMovementComponent : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _shootComponent = GetComponentInChildren<ShootComponent>(); 
     }
 
     // Update is called once per frame
@@ -39,15 +44,27 @@ public class PlayerMovementComponent : MonoBehaviour
         else
         {
             _inputMoveDirection = context.ReadValue<float>();
+            //_shootComponent.SetDirection(new Vector2(_inputMoveDirection, 0));
             if(context.started) OnMovementBegin?.Invoke();
         }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.started && _isGrounded)
+        if(context.started)
         {
-            _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
+            if (_isGrounded)
+            {
+                _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
+                _canDoubleJump = true;
+            }
+            else if(_canDoubleJump)
+            {
+                _rigidbody.linearVelocityY = 0; // otherwise jump immediately after first jump would go super high
+                _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
+                _canDoubleJump = false;
+            }
         }
+
     }
 }
