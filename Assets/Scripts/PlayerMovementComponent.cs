@@ -13,11 +13,15 @@ public class PlayerMovementComponent : MonoBehaviour
     private float _inputMoveDirection;
     private bool _isGrounded;
     private bool _canDoubleJump;
+    private bool _isJumping;
 
     private ShootComponent _shootComponent;
 
     public UnityEvent OnMovementBegin = new UnityEvent();
-    public UnityEvent OnMovementEnd = new UnityEvent(); 
+    public UnityEvent OnMovementEnd = new UnityEvent();
+
+    public UnityEvent OnJumpBegin = new UnityEvent();
+    public UnityEvent OnJumpEnd = new UnityEvent();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +35,11 @@ public class PlayerMovementComponent : MonoBehaviour
     {
         _rigidbody.linearVelocityX = _inputMoveDirection * _speed; // staying away from the y doesnt override gravity
         _isGrounded = Physics2D.Raycast(transform.position, -transform.up, 0.55f, LayerMask.GetMask("Ground")); //TODO: for later maybe two for each side (maybe even getting it from collider width?)
-
+        if(_isJumping && _isGrounded && _rigidbody.linearVelocityY <= 0f)
+        {
+            _isJumping = false;
+            OnJumpEnd?.Invoke();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -57,6 +65,8 @@ public class PlayerMovementComponent : MonoBehaviour
             {
                 _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
                 _canDoubleJump = true;
+                _isJumping = true;
+                OnJumpBegin?.Invoke();
             }
             else if(_canDoubleJump)
             {

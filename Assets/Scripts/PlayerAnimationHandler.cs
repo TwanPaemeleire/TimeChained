@@ -20,6 +20,8 @@ namespace Assets.Scripts
             PlayerMovementComponent playerMovement = GetComponent<PlayerMovementComponent>();
             playerMovement.OnMovementBegin.AddListener(OnMovementBegin);
             playerMovement.OnMovementEnd.AddListener(OnMovementEnd);
+            playerMovement.OnJumpBegin.AddListener(OnJumpBegin);
+            playerMovement.OnJumpEnd.AddListener(OnJumpEnd);
         }
 
         // Update is called once per frame
@@ -72,6 +74,15 @@ namespace Assets.Scripts
         void OnMovementEnd()
         {
             _animator.SetBool("IsMoving", false);
+        }
+
+        void OnJumpBegin()
+        {
+            _animator.SetBool("IsJumping", true);
+        }
+        void OnJumpEnd()
+        {
+            _animator.SetBool("IsJumping", false);
         }
     }
 }

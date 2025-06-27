@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class ShootComponent : MonoBehaviour
@@ -8,8 +9,8 @@ public class ShootComponent : MonoBehaviour
     [SerializeField] private float _offset = 0.6f;
     [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
     private float _accumulatedTime;
-    
 
+    public UnityEvent OnShoot = new UnityEvent();
 
     void Update()
     {
@@ -34,6 +35,7 @@ public class ShootComponent : MonoBehaviour
         {
             bullet.transform.position = transform.position + _direction.normalized * _offset;
             bullet.transform.right = _direction.normalized;
+            OnShoot?.Invoke();
         }
     }
 
