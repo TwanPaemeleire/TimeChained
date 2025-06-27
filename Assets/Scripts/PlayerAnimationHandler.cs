@@ -1,74 +1,77 @@
 using UnityEngine;
 
-public class PlayerAnimationHandler : MonoBehaviour
+namespace Assets.Scripts
 {
-    [SerializeField] private AnimatorOverrideController _medievalControllerOverride;
-    private RuntimeAnimatorController _defaultController;
-    private Animator _animator;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerAnimationHandler : MonoBehaviour
     {
-        WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
-        WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
-        WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
-        _animator = GetComponent<Animator>();
-        _defaultController = _animator.runtimeAnimatorController;
+        [SerializeField] private AnimatorOverrideController _medievalControllerOverride;
+        [SerializeField] private AnimatorOverrideController _cyberpunkControllerOverride;
+        private Animator _animator;
 
-        PlayerMovementComponent playerMovement = GetComponent<PlayerMovementComponent>();
-        playerMovement.OnMovementBegin.AddListener(OnMovementBegin);
-        playerMovement.OnMovementEnd.AddListener(OnMovementEnd);
-    }
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+            WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
+            WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
+            _animator = GetComponent<Animator>();
+            _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
 
-    // Update is called once per frame
-    void Update()
-    {
+            PlayerMovementComponent playerMovement = GetComponent<PlayerMovementComponent>();
+            playerMovement.OnMovementBegin.AddListener(OnMovementBegin);
+            playerMovement.OnMovementEnd.AddListener(OnMovementEnd);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
+        }
 
-    void OnWorldSwap()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        void OnWorldSwap()
         {
-            _animator.runtimeAnimatorController = _defaultController;
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
+            }
+            else
+            {
+                _animator.runtimeAnimatorController = _medievalControllerOverride;
+            }
         }
-        else
-        {
-            _animator.runtimeAnimatorController = _medievalControllerOverride;
-        }
-    }
 
-    void OnNewWorldFlicker()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        void OnNewWorldFlicker()
         {
-            _animator.runtimeAnimatorController = _medievalControllerOverride;
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _animator.runtimeAnimatorController = _medievalControllerOverride;
+            }
+            else
+            {
+                _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
+            }
         }
-        else
-        {
-            _animator.runtimeAnimatorController = _defaultController;
-        }
-    }
 
-    void OnCurrentWorldBackFlicker()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        void OnCurrentWorldBackFlicker()
         {
-            _animator.runtimeAnimatorController = _defaultController;
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
+            }
+            else
+            {
+                _animator.runtimeAnimatorController = _medievalControllerOverride;
+            }
         }
-        else
+
+        void OnMovementBegin()
         {
-            _animator.runtimeAnimatorController = _medievalControllerOverride;
+            _animator.SetBool("IsMoving", true);
         }
-    }
 
-    void OnMovementBegin()
-    {
-        _animator.SetBool("IsMoving", true);
-    }
-
-    void OnMovementEnd()
-    {
-        _animator.SetBool("IsMoving", false);
+        void OnMovementEnd()
+        {
+            _animator.SetBool("IsMoving", false);
+        }
     }
 }

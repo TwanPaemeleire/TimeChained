@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CyberpunkControllerOverride
+  m_Controller: {fileID: 9100000, guid: b26f6b5b89121ea43be354e79a697d1c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: d77fee2c096669442bc0fcd935d771a8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d77fee2c096669442bc0fcd935d771a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b5a1112944598b64383227773a247c21, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b5a1112944598b64383227773a247c21, type: 2}
