@@ -10,6 +10,8 @@ public class PlayerAnimationHandler : MonoBehaviour
     void Start()
     {
         WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+        WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
+        WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
         _animator = GetComponent<Animator>();
         _defaultController = _animator.runtimeAnimatorController;
 
@@ -26,8 +28,38 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     void OnWorldSwap()
     {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld) _animator.runtimeAnimatorController = _defaultController;
-        else _animator.runtimeAnimatorController = _medievalControllerOverride;
+        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        {
+            _animator.runtimeAnimatorController = _defaultController;
+        }
+        else
+        {
+            _animator.runtimeAnimatorController = _medievalControllerOverride;
+        }
+    }
+
+    void OnNewWorldFlicker()
+    {
+        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        {
+            _animator.runtimeAnimatorController = _medievalControllerOverride;
+        }
+        else
+        {
+            _animator.runtimeAnimatorController = _defaultController;
+        }
+    }
+
+    void OnCurrentWorldBackFlicker()
+    {
+        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        {
+            _animator.runtimeAnimatorController = _defaultController;
+        }
+        else
+        {
+            _animator.runtimeAnimatorController = _medievalControllerOverride;
+        }
     }
 
     void OnMovementBegin()
