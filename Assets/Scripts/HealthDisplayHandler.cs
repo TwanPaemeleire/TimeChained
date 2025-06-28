@@ -1,21 +1,24 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthDisplayHandler : MonoBehaviour
+namespace Assets.Scripts
 {
-    [SerializeField] private HealthComponent _playerHealth;
-    private Slider _healthSlider;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class HealthDisplayHandler : MonoBehaviour
     {
-        _healthSlider = GetComponent<Slider>();
-        UpdateHealthDisplay();
-        _playerHealth.OnHit.AddListener(UpdateHealthDisplay);
-        _playerHealth.OnHit.AddListener(UpdateHealthDisplay);
-    }
+        [SerializeField] private HealthComponent _playerHealth;
+        private Slider _healthSlider;
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            _healthSlider = GetComponent<Slider>();
+            UpdateHealthDisplay();
+            _playerHealth.OnHit.AddListener(UpdateHealthDisplay);
+            _playerHealth.OnHeal.AddListener(UpdateHealthDisplay);
+        }
 
-    void UpdateHealthDisplay()
-    {
-        _healthSlider.value = _playerHealth.GetRemainingHealthPercentage();
+        void UpdateHealthDisplay()
+        {
+            _healthSlider.value = _playerHealth.GetRemainingHealthPercentage();
+        }
     }
 }
