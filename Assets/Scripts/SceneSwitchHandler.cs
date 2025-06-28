@@ -10,12 +10,15 @@ public class SceneSwitchHandler : MonoBehaviour
 
     private void Awake()
     {
-        _transitionAnimator.enabled = false;
+        if (!_hasBeginAnimation)
+        {
+            _transitionAnimator.enabled = false;
+        }
     }
 
     public void RequestSceneTransition(int sceneId)
     {
-        if(_hasBeginAnimation)
+        if(!_hasBeginAnimation)
         {
             _transitionAnimator.enabled = true;
         }
