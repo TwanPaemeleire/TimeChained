@@ -1,16 +1,29 @@
+using Assets.Scripts.World;
 using UnityEngine;
 
 namespace Assets.Scripts.SharedLogic
 {
     public class BulletComponent : MonoBehaviour
     {
+        [SerializeField] private float _maxLifetime = 3.0f;
+        [SerializeField] private Sprite _cyberpunkBulletSprite;
+        [SerializeField] private Sprite _medievalBulletSprite;
+        private SpriteRenderer _bulletRenderer;
+
         private float _speed = 6f;
         private string _shooterTag;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
+            _bulletRenderer = GetComponent<SpriteRenderer>();
+            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+            Initialize();
+        }
 
+        public void Initialize()
+        {
+            Invoke(nameof(DestroyBullet), _maxLifetime);
         }
 
         // Update is called once per frame
@@ -37,9 +50,25 @@ namespace Assets.Scripts.SharedLogic
                 Debug.Log("Player hit");
                 transform.gameObject.SetActive(false);
             }
+            DestroyBullet();
+        }
 
-            //after hit just disable?
-            transform.gameObject.SetActive(false);
+        void DestroyBullet()
+        {
+            CancelInvoke(nameof(DestroyBullet));
+            BulletsHandler.Instance.ReturnBullet(this.gameObject);
+        }
+
+        void OnWorldSwap()
+        {
+            if(WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _bulletRenderer.sprite = _cyberpunkBulletSprite;
+            }
+            else
+            {
+                _bulletRenderer.sprite = _medievalBulletSprite;
+            }
         }
     }
 }

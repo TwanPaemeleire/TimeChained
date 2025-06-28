@@ -33,12 +33,13 @@ namespace Assets.Scripts.SharedLogic
 
         private void Shoot()
         {
-            Tuple<GameObject, BulletComponent> bullet = BulletsHandler.Instance.RequestBullet();
+            GameObject bullet = BulletsHandler.Instance.RequestBullet();
+
             if (bullet != null)
-            {
-                bullet.Item1.transform.position = _socket.position;
-                bullet.Item1.transform.right = _direction.normalized;
-                bullet.Item2.SetShooterTag(transform.tag);
+            {    
+                bullet.transform.position = _socket.position;
+                bullet.transform.right = _direction.normalized;
+                bullet.GetComponent<BulletComponent>().SetShooterTag(transform.tag);
                 OnShoot?.Invoke();
             }
         }
