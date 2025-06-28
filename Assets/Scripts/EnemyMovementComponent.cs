@@ -11,19 +11,22 @@ namespace Assets.Scripts
 
         private int _currentTargetPointIndex = 0;
         private Vector3 _direction = Vector3.zero;
-        private bool _isInAttackMode = false;
+
+        private EnemyAIComponent _enemyAIComponent;
+
 
         private void Start()
         {
+            _enemyAIComponent = GetComponent<EnemyAIComponent>();
 
             _direction = (_patrolPoints[_currentTargetPointIndex].position - transform.position).normalized;
             _direction.y = 0;
         }
 
-        // Update is called once per frame
         private void Update()
         {
-            if (_patrolPoints == null || _patrolPoints.Count == 0 )
+            if (_enemyAIComponent.CurrentEnemyState == EnemyAIComponent.EnemyState.Dormant 
+                || _patrolPoints == null || _patrolPoints.Count == 0 )
             {
                 return;
             }
@@ -35,7 +38,7 @@ namespace Assets.Scripts
 
             var speed = _movementSpeed;
 
-            if (_isInAttackMode)
+            if (_enemyAIComponent.CurrentEnemyState == EnemyAIComponent.EnemyState.Attacking)
             {
                 speed *= 0.5f;
             }
@@ -43,19 +46,17 @@ namespace Assets.Scripts
             transform.position += speed * Time.deltaTime * _direction;
         }
 
-        void OnTriggerEnter2D(Collider2D col)
+        private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("PatrolPoint"))
             {
                 _direction = Vector3.zero;
                 _currentTargetPointIndex++;
-                Debug.Log("Current index:" + _currentTargetPointIndex);
 
                 if (_currentTargetPointIndex == _patrolPoints.Count)
                 {
                     _currentTargetPointIndex = 1;
                     _patrolPoints.Reverse();
-                    Debug.Log("reversed");
                 }
 
                 StartCoroutine(StandGuard());
