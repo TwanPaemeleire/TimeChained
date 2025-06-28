@@ -12,6 +12,7 @@ public class WorldSwapHandler : MonoSingleton<WorldSwapHandler>
     public bool IsInCyberpunkWorld { get { return _isInCyberpunkWorld; } }
 
     public UnityEvent OnWorldSwap = new UnityEvent();
+    public UnityEvent OnFinalFlicker = new UnityEvent();
     public UnityEvent OnNewWorldFlicker = new UnityEvent();
     public UnityEvent OnCurrentWorldBackFlicker = new UnityEvent();
 
@@ -30,6 +31,7 @@ public class WorldSwapHandler : MonoSingleton<WorldSwapHandler>
 
             for(int flickerCounter = 0; flickerCounter < _amountOfFlickers; ++flickerCounter)
             {
+                if (flickerCounter == _amountOfFlickers - 1) OnFinalFlicker?.Invoke();
                 OnNewWorldFlicker?.Invoke();
                 yield return new WaitForSeconds(_flickerDuration);
                 OnCurrentWorldBackFlicker?.Invoke();
