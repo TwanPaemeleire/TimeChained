@@ -4,13 +4,12 @@ using UnityEngine.Rendering;
 
 public class PlayerWeaponRotateComponent : MonoBehaviour
 {
-    [SerializeField] private Vector3 _pointToRotateAround;
-    private const float distanceFromPlayerX = 0.34f;
-    private const float distanceFromPlayerY = 0.2f;
+    [SerializeField] private Transform _socket;
     private ShootComponent _shootComponent;
     private SpriteRenderer _spriteRenderer;
 
     private Vector3 _currentPointRotateAround;
+    private Vector3 _socketPos;
 
     private Vector2[] snapDirections = new Vector2[]
     {
@@ -27,8 +26,9 @@ public class PlayerWeaponRotateComponent : MonoBehaviour
     void Start()
     {
         _shootComponent = GetComponent<ShootComponent>();
-        _currentPointRotateAround = _pointToRotateAround;
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _currentPointRotateAround = transform.localPosition;
+        _socketPos = _socket.localPosition;
     }
 
     // Update is called once per frame
@@ -61,21 +61,36 @@ public class PlayerWeaponRotateComponent : MonoBehaviour
         }
 
         Vector3 snappedDirection = bestDir.normalized;
-        transform.localPosition = _currentPointRotateAround + new Vector3(snappedDirection.x * distanceFromPlayerX, snappedDirection.y * distanceFromPlayerY, 0);
         float angle = Mathf.Atan2(snappedDirection.y, snappedDirection.x) * Mathf.Rad2Deg;
+
+        if (snappedDirection.x < 0)
+        {
+            _spriteRenderer.flipX = true;
+            _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
+            angle -= 180f;
+        }
+        else
+        {
+            _spriteRenderer.flipX = false;
+            _socket.localPosition = _socketPos;
+        }
+
+        
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
         _shootComponent.SetDirection(snappedDirection);
     }
 
     public void FlipLeft()
     {
-        _currentPointRotateAround.x = -_pointToRotateAround.x;
-        _spriteRenderer.flipX = true;
+        //_spriteRenderer.flipX = true;
+        transform.localPosition = new Vector3(-_currentPointRotateAround.x, _currentPointRotateAround.y);
+        _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
     }
 
     public void FlipRight()
     {
-        _currentPointRotateAround.x = _pointToRotateAround.x;
-        _spriteRenderer.flipX = false;
+        //_spriteRenderer.flipX = false;
+        transform.localPosition = _currentPointRotateAround;
+        _socket.localPosition = _socketPos;
     }
 }

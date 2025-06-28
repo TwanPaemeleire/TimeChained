@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -6,8 +7,8 @@ public class ShootComponent : MonoBehaviour
 {
     [SerializeField] private float _fireRate;
     [SerializeField] private bool _shouldShoot; //for eg traps that just always shoot
-    [SerializeField] private float _offset = 0.6f;
     [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
+    [SerializeField] private Transform _socket;
     private float _accumulatedTime;
 
     public UnityEvent OnShoot = new UnityEvent();
@@ -30,11 +31,12 @@ public class ShootComponent : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject bullet = BulletsHandler.Instance.RequestBullet();
+        Tuple<GameObject, BulletComponent> bullet = BulletsHandler.Instance.RequestBullet();
         if (bullet != null)
         {
-            bullet.transform.position = transform.position + _direction.normalized * _offset;
-            bullet.transform.right = _direction.normalized;
+            bullet.Item1.transform.position = _socket.position;
+            bullet.Item1.transform.right = _direction.normalized;
+            bullet.Item2.SetShooterTag(transform.tag);
             OnShoot?.Invoke();
         }
     }

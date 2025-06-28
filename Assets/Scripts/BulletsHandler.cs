@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletsHandler : MonoSingleton<BulletsHandler>
@@ -7,36 +8,37 @@ public class BulletsHandler : MonoSingleton<BulletsHandler>
     [SerializeField] private Sprite _medievalBulletSprite;
 
     private Sprite _cyberBulletSprite;
-    private GameObject[] _bullets;
+    private Tuple<GameObject, BulletComponent>[] _bullets;
     private SpriteRenderer[] _bulletRenderers;
     private float[] _bulletsActiveTime;
 
     private void Start()
     {
-        _bullets = new GameObject[_maxBullets]; 
+        _bullets = new Tuple<GameObject, BulletComponent>[_maxBullets]; 
         _bulletsActiveTime = new float[_maxBullets];
         _bulletRenderers = new SpriteRenderer[_maxBullets];
         for (int i = 0; i < _maxBullets; i++)
         {
-            _bullets[i] = Instantiate(_bulletPrefab);
-            _bulletRenderers[i] = _bullets[i].GetComponent<SpriteRenderer>();
-            _bullets[i].SetActive(false);
+            GameObject bullet = Instantiate(_bulletPrefab);
+            _bullets[i] = new Tuple<GameObject, BulletComponent>(bullet, bullet.GetComponent<BulletComponent>());
+            _bulletRenderers[i] = _bullets[i].Item1.GetComponent<SpriteRenderer>();
+            _bullets[i].Item1.SetActive(false);
         }
         _cyberBulletSprite = _bulletRenderers[0].sprite;
         WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
     }
 
 
-    public GameObject RequestBullet()
+    public Tuple<GameObject, BulletComponent> RequestBullet()
     {
         int oldestIndex = -1;
         float oldestTime = float.MaxValue;
 
         for (int i = 0; i < _bullets.Length; i++)
         {
-            if (!_bullets[i].activeSelf)
+            if (!_bullets[i].Item1.activeSelf)
             {
-                _bullets[i].gameObject.SetActive(true);
+                _bullets[i].Item1.SetActive(true);
                 _bulletsActiveTime[i] = Time.time;
                 return _bullets[i];
             }
@@ -51,7 +53,7 @@ public class BulletsHandler : MonoSingleton<BulletsHandler>
             }
         }
 
-        _bullets[oldestIndex].gameObject.SetActive(true);
+        _bullets[oldestIndex].Item1.SetActive(true);
         _bulletsActiveTime[oldestIndex] = Time.time;
         return _bullets[oldestIndex];
     }

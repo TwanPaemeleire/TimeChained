@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - PatrolPoint
+  - Trap
   layers:
   - Default
   - TransparentFX

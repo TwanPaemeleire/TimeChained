@@ -140,12 +140,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 255
-        width: 13
+        x: 11
+        y: 256
+        width: 11
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 223
-        width: 17
-        height: 21
+        x: 10
+        y: 224
+        width: 15
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_2
       rect:
         serializedVersion: 2
-        x: 9
-        y: 191
-        width: 17
-        height: 20
+        x: 10
+        y: 192
+        width: 15
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 162
-        width: 12
+        x: 13
+        y: 163
+        width: 10
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_4
       rect:
         serializedVersion: 2
-        x: 12
-        y: 134
-        width: 12
+        x: 13
+        y: 135
+        width: 10
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,12 +250,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_5
       rect:
         serializedVersion: 2
-        x: 12
-        y: 103
-        width: 12
+        x: 13
+        y: 104
+        width: 10
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_6
       rect:
         serializedVersion: 2
-        x: 11
-        y: 67
-        width: 13
-        height: 27
+        x: 12
+        y: 68
+        width: 11
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_7
       rect:
         serializedVersion: 2
-        x: 11
-        y: 31
-        width: 16
-        height: 14
+        x: 12
+        y: 32
+        width: 14
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -316,12 +316,12 @@ TextureImporter:
       name: Player_Future_Jump_Aim_8
       rect:
         serializedVersion: 2
-        x: 9
+        x: 10
         y: 0
-        width: 14
-        height: 22
+        width: 12
+        height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -338,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ab9e7506898c0dd43a7de78f226496c4
     internalID: 0
     vertices: []
     indices: 
@@ -346,7 +346,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Player_Future_Jump_Aim_0: -979725506559297810
       Player_Future_Jump_Aim_1: 3519599043860441130

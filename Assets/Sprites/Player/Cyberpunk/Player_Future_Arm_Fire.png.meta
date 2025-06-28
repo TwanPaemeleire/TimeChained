@@ -129,11 +129,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 72
-        width: 17
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 68
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,11 +151,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 55
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 51
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -173,11 +173,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 38
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 34
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -195,11 +195,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 17
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -217,11 +217,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 0
+        width: 19
+        height: 17
+      alignment: 9
+      pivot: {x: 0, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e61d91e1fd31e9643bdee1d51d445591
     internalID: 0
     vertices: []
     indices: 
@@ -246,7 +246,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":5.0},"gridSpriteSize":{"x":19.0,"y":17.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Player_Future_Arm_Fire_0: -6582653408381623544
       Player_Future_Arm_Fire_1: 5396864678130549897

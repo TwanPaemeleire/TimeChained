@@ -1,9 +1,11 @@
 using System.Threading;
+using UnityEditor;
 using UnityEngine;
 
 public class BulletComponent : MonoBehaviour
 {
     private float _speed = 6f;
+    private string _shooterTag;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,8 +24,14 @@ public class BulletComponent : MonoBehaviour
         _speed = newSpeed;
     }
 
+    public void SetShooterTag(string tag)
+    {
+        _shooterTag = tag;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag(_shooterTag)) return; //hits self
         if(collision.CompareTag("Player"))
         {
             Debug.Log("Player hit");
