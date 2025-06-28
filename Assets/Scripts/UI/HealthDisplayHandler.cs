@@ -2,7 +2,7 @@ using Assets.Scripts.SharedLogic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Player
+namespace Assets.Scripts.UI
 {
     public class HealthDisplayHandler : MonoBehaviour
     {

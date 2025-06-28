@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.World
+namespace Assets.Scripts.UI
 {
     public class GameQuitHandler : MonoBehaviour
     {
