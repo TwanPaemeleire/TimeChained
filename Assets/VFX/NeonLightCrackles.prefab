@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4917196615144444121}
   - component: {fileID: 3249625614589246759}
   m_Layer: 0
-  m_Name: TorchCrackles
+  m_Name: NeonLightCrackles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.8627451, g: 0.5294118, b: 0.09019608, a: 1}
-      maxColor: {r: 0.69803923, g: 0.2509804, b: 0.05882353, a: 1}
+      minColor: {r: 1, g: 0.8254717, b: 0.9895011, a: 1}
+      maxColor: {r: 0.91764706, g: 0.6313726, b: 0.9411765, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3684,7 +3684,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
