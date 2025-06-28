@@ -13,10 +13,14 @@ namespace Assets.Scripts.World
         private bool _isInCyberpunkWorld = true;
         public bool IsInCyberpunkWorld { get { return _isInCyberpunkWorld; } }
 
+        private bool _isFlickeringInCyberpunkWorld = false;
+        public bool IsFlickeringInCyberpunkWorld { get { return _isFlickeringInCyberpunkWorld; } }
+
         public UnityEvent OnWorldSwap = new UnityEvent();
         public UnityEvent OnFinalFlicker = new UnityEvent();
         public UnityEvent OnNewWorldFlicker = new UnityEvent();
         public UnityEvent OnCurrentWorldBackFlicker = new UnityEvent();
+        public UnityEvent OnWorldFlicker = new UnityEvent();
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,10 +38,18 @@ namespace Assets.Scripts.World
                 for(int flickerCounter = 0; flickerCounter < _amountOfFlickers; ++flickerCounter)
                 {
                     if (flickerCounter == _amountOfFlickers - 1) OnFinalFlicker?.Invoke();
-                    OnNewWorldFlicker?.Invoke();
+
+                    OnWorldFlicker?.Invoke();
+                    _isFlickeringInCyberpunkWorld = !_isFlickeringInCyberpunkWorld;
                     yield return new WaitForSeconds(_flickerDuration);
-                    OnCurrentWorldBackFlicker?.Invoke();
+                    OnWorldFlicker?.Invoke();
+                    _isFlickeringInCyberpunkWorld = !_isFlickeringInCyberpunkWorld;
                     yield return new WaitForSeconds(_flickerDuration);
+
+                    //OnNewWorldFlicker?.Invoke();
+                    //yield return new WaitForSeconds(_flickerDuration);
+                    //OnCurrentWorldBackFlicker?.Invoke();
+                    //yield return new WaitForSeconds(_flickerDuration);
                 }
 
                 _isInCyberpunkWorld = !_isInCyberpunkWorld;
