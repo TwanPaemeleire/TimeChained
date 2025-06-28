@@ -12,7 +12,7 @@ namespace Assets.Scripts
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
+            if(collision.gameObject.CompareTag("Player") && collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
             {
                 Debug.Log("ENTERED");
                 _entitiesInTrap.Add(healthComponent, StartCoroutine(TrapDamageCoroutine(healthComponent)));
@@ -21,7 +21,7 @@ namespace Assets.Scripts
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
+            if (collision.gameObject.CompareTag("Player") && collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
             {
                 Debug.Log("EXITED");
                 StopCoroutine(_entitiesInTrap[healthComponent]);
