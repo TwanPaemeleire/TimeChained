@@ -837,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a6957970e22b945abe07a64f5e9e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyWeaponComponent: {fileID: 1869078153}
 --- !u!1 &615657659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bab197a7da68e24bb2391d792a650db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0.5
+  _fireRate: 0.8
   _shouldShoot: 0
   _direction: {x: 1, y: 0, z: 0}
   _socket: {fileID: 1119274043}
