@@ -1,42 +1,45 @@
 using UnityEngine;
 
-public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
+namespace Assets.Scripts
 {
-    static T m_Instance;
-    static bool hasBeenCreated;
-    public static T Instance
+    public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
-        get
+        static T m_Instance;
+        static bool hasBeenCreated;
+        public static T Instance
         {
-            if (m_Instance == null)
+            get
             {
-                m_Instance = FindAnyObjectByType<T>();
                 if (m_Instance == null)
                 {
-                    if (!hasBeenCreated)
-                        m_Instance = new GameObject("_" + typeof(T), typeof(T)).GetComponent<T>();
-                }
-                else
-                {
-                    hasBeenCreated = true;
-                    DontDestroyOnLoad(m_Instance);
-                    m_Instance.Init();
+                    m_Instance = FindAnyObjectByType<T>();
+                    if (m_Instance == null)
+                    {
+                        if (!hasBeenCreated)
+                            m_Instance = new GameObject("_" + typeof(T), typeof(T)).GetComponent<T>();
+                    }
+                    else
+                    {
+                        hasBeenCreated = true;
+                        DontDestroyOnLoad(m_Instance);
+                        m_Instance.Init();
+                    }
+                    return m_Instance;
                 }
                 return m_Instance;
             }
-            return m_Instance;
         }
-    }
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-        if (m_Instance == null)
+        private void Awake()
         {
-            m_Instance = this as T;
-            hasBeenCreated = true;
-            m_Instance.Init();
+            DontDestroyOnLoad(this);
+            if (m_Instance == null)
+            {
+                m_Instance = this as T;
+                hasBeenCreated = true;
+                m_Instance.Init();
+            }
         }
+        protected virtual void Init() { }
     }
-    protected virtual void Init() { }
 }

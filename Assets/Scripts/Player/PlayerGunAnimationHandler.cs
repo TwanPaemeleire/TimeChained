@@ -1,70 +1,75 @@
+using Assets.Scripts.SharedLogic;
+using Assets.Scripts.World;
 using UnityEngine;
 
-public class PlayerGunAnimationHandler : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private AnimatorOverrideController _medievalWeaponControllerOverride;
-    [SerializeField] private AnimatorOverrideController _cyberpunkWeaponControllerOverride;
-    private Animator _weaponAnimator;
-
-    private const float ShootTime = 0.3f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerGunAnimationHandler : MonoBehaviour
     {
-        WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
-        WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
-        WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
-        _weaponAnimator = GetComponent<Animator>();
-        _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
+        [SerializeField] private AnimatorOverrideController _medievalWeaponControllerOverride;
+        [SerializeField] private AnimatorOverrideController _cyberpunkWeaponControllerOverride;
+        private Animator _weaponAnimator;
 
-        ShootComponent weaponComp = GetComponent<ShootComponent>();
-        weaponComp.OnShoot.AddListener(OnShoot);
-    }
+        private const float ShootTime = 0.3f;
 
-    void OnWorldSwap()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
         {
+            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+            WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
+            WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
+            _weaponAnimator = GetComponent<Animator>();
             _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
-        }
-        else
-        {
-            _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
-        }
-    }
 
-    void OnNewWorldFlicker()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
-        {
-            _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
+            ShootComponent weaponComp = GetComponent<ShootComponent>();
+            weaponComp.OnShoot.AddListener(OnShoot);
         }
-        else
-        {
-            _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
-        }
-    }
 
-    void OnCurrentWorldBackFlicker()
-    {
-        if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+        void OnWorldSwap()
         {
-            _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
+            }
+            else
+            {
+                _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
+            }
         }
-        else
+
+        void OnNewWorldFlicker()
         {
-            _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
+            }
+            else
+            {
+                _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
+            }
         }
-    }
 
-    void OnShoot()
-    {
-        _weaponAnimator.SetBool("IsShooting", true);
-        Invoke("StopShoot", ShootTime);
-    }
+        void OnCurrentWorldBackFlicker()
+        {
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
+            }
+            else
+            {
+                _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
+            }
+        }
 
-    private void StopShoot()
-    {
-        _weaponAnimator.SetBool("IsShooting", false);
+        void OnShoot()
+        {
+            _weaponAnimator.SetBool("IsShooting", true);
+            Invoke("StopShoot", ShootTime);
+        }
+
+        private void StopShoot()
+        {
+            _weaponAnimator.SetBool("IsShooting", false);
+        }
     }
 }

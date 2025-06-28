@@ -1,6 +1,7 @@
+using Assets.Scripts.World;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Player
 {
     public class PlayerAnimationHandler : MonoBehaviour
     {

@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class GameQuitHandler : MonoBehaviour
+namespace Assets.Scripts.World
 {
-    public void RequestQuit()
+    public class GameQuitHandler : MonoBehaviour
     {
-        Application.Quit();
+        public void RequestQuit()
+        {
+            Application.Quit();
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#endif
+        }
     }
 }

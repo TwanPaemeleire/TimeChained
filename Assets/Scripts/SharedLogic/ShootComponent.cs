@@ -3,58 +3,66 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class ShootComponent : MonoBehaviour
+namespace Assets.Scripts.SharedLogic
 {
-    [SerializeField] private float _fireRate;
-    [SerializeField] private bool _shouldShoot; //for eg traps that just always shoot
-    [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
-    [SerializeField] private Transform _socket;
-    private float _accumulatedTime;
-
-    public UnityEvent OnShoot = new UnityEvent();
-
-    void Update()
+    public class ShootComponent : MonoBehaviour
     {
-        if (_accumulatedTime <= _fireRate) //not necessary to keep increasing if it is already bigger than it needs to be
+        [SerializeField] private float _fireRate;
+        [SerializeField] private bool _shouldShoot; //for eg traps that just always shoot
+        [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
+        [SerializeField] private Transform _socket;
+        private float _accumulatedTime;
+
+        public UnityEvent OnShoot = new UnityEvent();
+
+        void Update()
         {
-            _accumulatedTime += Time.deltaTime;
-        }
-        else
-        {
-            if (_shouldShoot)
+            if (_accumulatedTime <= _fireRate) //not necessary to keep increasing if it is already bigger than it needs to be
             {
-                Shoot();
-                _accumulatedTime -= _fireRate;
+                _accumulatedTime += Time.deltaTime;
+            }
+            else
+            {
+                if (_shouldShoot)
+                {
+                    Shoot();
+                    _accumulatedTime -= _fireRate;
+                }
             }
         }
-    }
 
-    private void Shoot()
-    {
-        Tuple<GameObject, BulletComponent> bullet = BulletsHandler.Instance.RequestBullet();
-        if (bullet != null)
+        private void Shoot()
         {
-            bullet.Item1.transform.position = _socket.position;
-            bullet.Item1.transform.right = _direction.normalized;
-            bullet.Item2.SetShooterTag(transform.tag);
-            OnShoot?.Invoke();
+            Tuple<GameObject, BulletComponent> bullet = BulletsHandler.Instance.RequestBullet();
+            if (bullet != null)
+            {
+                bullet.Item1.transform.position = _socket.position;
+                bullet.Item1.transform.right = _direction.normalized;
+                bullet.Item2.SetShooterTag(transform.tag);
+                OnShoot?.Invoke();
+            }
         }
-    }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (context.started)
+        public void Shoot(InputAction.CallbackContext context)
         {
-            _shouldShoot = true;
+            if (context.started)
+            {
+                _shouldShoot = true;
+            }
+            else if (context.canceled)
+            {
+                _shouldShoot = false;
+            }
         }
-        else if (context.canceled)
-        {
-            _shouldShoot = false;
-        }
-    }
 
-    public void SetDirection(Vector2 direction)
-    {
-        _direction = direction;
+        public void SetDirection(Vector2 direction)
+        {
+            _direction = direction;
+        }
+
+        public void SetShouldShoot(bool newShouldShoot)
+        {
+            _shouldShoot = newShouldShoot;
+        }
     }
 }

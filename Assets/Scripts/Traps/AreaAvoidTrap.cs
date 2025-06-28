@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.SharedLogic;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Traps
 {
     public class AreaAvoidTrap : MonoBehaviour
     {

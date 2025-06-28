@@ -1,60 +1,63 @@
+using Assets.Scripts.SharedLogic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
-public class PlayerWeaponRotateComponent : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private Transform _socket;
-    private ShootComponent _shootComponent;
-    private SpriteRenderer _spriteRenderer;
-
-    private Vector3 _currentPointRotateAround;
-    private Vector3 _socketPos;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PlayerWeaponRotateComponent : MonoBehaviour
     {
-        _shootComponent = GetComponent<ShootComponent>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _currentPointRotateAround = transform.localPosition;
-        _socketPos = _socket.localPosition;
-    }
+        [SerializeField] private Transform _socket;
+        private ShootComponent _shootComponent;
+        private SpriteRenderer _spriteRenderer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        mouseWorldPos.z = 0f;
+        private Vector3 _currentPointRotateAround;
+        private Vector3 _socketPos;
 
-        Vector3 dirToMouse = (mouseWorldPos - transform.parent.position).normalized;
-        float angle = Mathf.Atan2(dirToMouse.y, dirToMouse.x) * Mathf.Rad2Deg;
-
-        if (dirToMouse.x < 0)
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
         {
-            _spriteRenderer.flipX = true;
-            _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
-            angle -= 180f;
+            _shootComponent = GetComponent<ShootComponent>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _currentPointRotateAround = transform.localPosition;
+            _socketPos = _socket.localPosition;
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            _spriteRenderer.flipX = false;
-            _socket.localPosition = _socketPos;
-        }
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mouseWorldPos.z = 0f;
+
+            Vector3 dirToMouse = (mouseWorldPos - transform.parent.position).normalized;
+            float angle = Mathf.Atan2(dirToMouse.y, dirToMouse.x) * Mathf.Rad2Deg;
+
+            if (dirToMouse.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+                _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
+                angle -= 180f;
+            }
+            else
+            {
+                _spriteRenderer.flipX = false;
+                _socket.localPosition = _socketPos;
+            }
 
         
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        _shootComponent.SetDirection(dirToMouse);
-    }
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            _shootComponent.SetDirection(dirToMouse);
+        }
 
-    public void FlipLeft()
-    {
-        transform.localPosition = new Vector3(-_currentPointRotateAround.x, _currentPointRotateAround.y);
-        _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
-    }
+        public void FlipLeft()
+        {
+            transform.localPosition = new Vector3(-_currentPointRotateAround.x, _currentPointRotateAround.y);
+            _socket.localPosition = new Vector3(-_socketPos.x, _socketPos.y);
+        }
 
-    public void FlipRight()
-    {
-        transform.localPosition = _currentPointRotateAround;
-        _socket.localPosition = _socketPos;
+        public void FlipRight()
+        {
+            transform.localPosition = _currentPointRotateAround;
+            _socket.localPosition = _socketPos;
+        }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.SharedLogic
 {
     public class HealthComponent : MonoBehaviour
     {

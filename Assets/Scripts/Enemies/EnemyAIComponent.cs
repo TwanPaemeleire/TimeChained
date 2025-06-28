@@ -1,12 +1,16 @@
+using Assets.Scripts.SharedLogic;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Enemies
 {
     public class EnemyAIComponent : MonoBehaviour
     {
+        [SerializeField] private ShootComponent _enemyWeaponComponent;
+
         private GameObject _player;
         private int _playerLayer;
         private int _visibilityMask;
+        private Vector2 _playerDirection;
 
         public enum EnemyState
         {
@@ -31,10 +35,13 @@ namespace Assets.Scripts
                 if (IsPlayerVisible())
                 {
                     CurrentEnemyState = EnemyState.Attacking;
+                    _enemyWeaponComponent.SetShouldShoot(true);
+                    _enemyWeaponComponent.SetDirection(_playerDirection);
                 }
                 else
                 {
                     CurrentEnemyState = EnemyState.Patrolling;
+                    _enemyWeaponComponent.SetShouldShoot(false);
                 }
             }
         }
@@ -56,16 +63,17 @@ namespace Assets.Scripts
             if (col.gameObject.layer == _playerLayer)
             {
                 CurrentEnemyState = EnemyState.Dormant;
+                _enemyWeaponComponent.SetShouldShoot(false);
             }
         }
 
         private bool IsPlayerVisible()
         {
             Vector2 origin = transform.position;
-            Vector2 direction = (_player.transform.position - transform.position).normalized;
+            _playerDirection = (_player.transform.position - transform.position).normalized;
             float distance = Vector2.Distance(origin, _player.transform.position);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, _visibilityMask);
+            RaycastHit2D hit = Physics2D.Raycast(origin, _playerDirection, distance, _visibilityMask);
 
             if(!hit.collider)
             {
