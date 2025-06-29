@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLifetime: 3
   _cyberpunkBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
-  _medievalBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
+  _medievalBulletSprite: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
 --- !u!61 &-6204344679361697265
 BoxCollider2D:
   m_ObjectHideFlags: 0

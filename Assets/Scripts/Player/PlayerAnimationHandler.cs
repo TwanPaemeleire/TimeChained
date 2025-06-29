@@ -41,6 +41,8 @@ namespace Assets.Scripts.Player
             {
                 _animator.runtimeAnimatorController = _medievalControllerOverride;
             }
+
+            Debug.Log("Changed after world");
         }
 
         void OnNewWorldFlicker()
@@ -53,6 +55,8 @@ namespace Assets.Scripts.Player
             {
                 _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
             }
+
+            Debug.Log("Changed after flicker");
         }
 
         void OnCurrentWorldBackFlicker()
@@ -65,6 +69,8 @@ namespace Assets.Scripts.Player
             {
                 _animator.runtimeAnimatorController = _medievalControllerOverride;
             }
+
+            Debug.Log("Changed after world back");
         }
 
         void OnMovementBegin()
