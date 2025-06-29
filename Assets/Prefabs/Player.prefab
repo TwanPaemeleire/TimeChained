@@ -202,10 +202,10 @@ GameObject:
   - component: {fileID: 6901586801908759852}
   - component: {fileID: 6901497637766015076}
   - component: {fileID: 5258756543227608536}
-  - component: {fileID: 2318084941085511441}
   - component: {fileID: 9126785843861323822}
   - component: {fileID: 9211103577453730826}
   - component: {fileID: 846627328544589880}
+  - component: {fileID: 2318084941085511441}
   - component: {fileID: 850635412379818201}
   - component: {fileID: 7031867361943058969}
   m_Layer: 0
@@ -313,32 +313,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2318084941085511441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6101028744876365989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8baf5cc7e4b8ffc48a2449fa577aedc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
-  _jumpStrength: 4
-  OnMovementBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  OnMovementEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  OnJumpBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  OnJumpEnd:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &9126785843861323822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +386,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e267eae1-111d-4399-bd69-22033f420731
     m_ActionName: 'Player/Shoot[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34939a78-c253-45be-aafb-c74f334028a3
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -485,6 +463,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2318084941085511441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101028744876365989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8baf5cc7e4b8ffc48a2449fa577aedc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _jumpStrength: 4
+  OnMovementBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJumpBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnJumpEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &850635412379818201
 MonoBehaviour:
   m_ObjectHideFlags: 0
