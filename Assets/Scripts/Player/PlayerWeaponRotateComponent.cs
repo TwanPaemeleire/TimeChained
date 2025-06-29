@@ -59,5 +59,6 @@ namespace Assets.Scripts.Player
             transform.localPosition = _currentPointRotateAround;
             _socket.localPosition = _socketPos;
         }
+
     }
 }

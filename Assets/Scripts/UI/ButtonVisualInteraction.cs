@@ -40,7 +40,7 @@ namespace Assets.Scripts.UI
             {
                 float newScale = Mathf.SmoothStep(initialScale.x, targetScale.x, elapsedTime / _timeToReachTargetScale);
                 transform.localScale = new Vector3(newScale, newScale, 1.0f);
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 yield return null;
             }
             transform.localScale = targetScale;
