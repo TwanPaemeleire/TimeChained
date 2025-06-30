@@ -1,24 +1,41 @@
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
-    public class ButtonVisualInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class ButtonVisualInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
     {
         [SerializeField] private Vector3 _maxScale;
         [SerializeField] private float _timeToReachTargetScale = 1.0f;
+        [SerializeField] private Sprite _default;
+        [SerializeField] private Sprite _hovered;
+        [SerializeField] private Sprite _pressed;
 
+        private bool _hasMadeSelection = false;
+        private Image _buttonImage;
         private Coroutine _scaleCoroutine;
 
-        public void OnPointerEnter(PointerEventData eventData)
+        private void Awake()
         {
+            _buttonImage = GetComponent<Image>();
+            _buttonImage.sprite = _default;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) 
+        {
+            if (_hasMadeSelection) return;
+            _buttonImage.sprite = _hovered;
             StartScaleCoroutine(_maxScale);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (_hasMadeSelection) return;
+            _buttonImage.sprite = _default;
             StartScaleCoroutine(Vector3.one);
         }
 
@@ -44,6 +61,16 @@ namespace Assets.Scripts.UI
                 yield return null;
             }
             transform.localScale = targetScale;
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _buttonImage.sprite = _pressed;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            _hasMadeSelection = true;
         }
     }
 }
