@@ -1909,69 +1909,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
-      value: 34939a78-c253-45be-aafb-c74f334028a3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
-      value: 'Player/Pause[/Keyboard/escape]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 439049023}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1375365373}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GamePauseHandler, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126785843861323822, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

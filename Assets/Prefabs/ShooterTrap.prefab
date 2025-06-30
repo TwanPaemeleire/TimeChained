@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8386835073887673544}
   - component: {fileID: 6348752648448875436}
   m_Layer: 0
-  m_Name: Trap
+  m_Name: ShooterTrap
   m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
