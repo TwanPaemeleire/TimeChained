@@ -44,7 +44,7 @@ namespace Assets.Scripts.SharedLogic
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(_shooterTag)) return; //hits self
+            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag)) return; //hits own shooter or other bullet
             if(collision.CompareTag("Player"))
             {
                 Debug.Log("Player hit");

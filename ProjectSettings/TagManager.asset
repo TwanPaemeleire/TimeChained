@@ -7,6 +7,7 @@ TagManager:
   - PatrolPoint
   - Trap
   - OneWayPlatform
+  - Bullet
   layers:
   - Default
   - TransparentFX
