@@ -75,7 +75,7 @@ namespace Assets.Scripts.Player
                     _weaponRotateComponent.FlipRight();
                 }
 
-                if (_inputMoveDirection.x > 0.0f && _previousInputMoveDirection.x == 0.0f) OnMovementBegin?.Invoke();
+                if (_previousInputMoveDirection.x == 0.0f && _inputMoveDirection.x != 0.0f) OnMovementBegin?.Invoke();
                 if(_inputMoveDirection.y < 0.0f && !(_previousInputMoveDirection.y < 0.0f)) // Player wants to drop down through platform
                 {
                      StartCoroutine(DisableOneWayCollisions());
