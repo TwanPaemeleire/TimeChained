@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EnemyMedievalWeaponControllerOverride
+  m_Controller: {fileID: 9100000, guid: 37e1320362e528749b6c1100a4f38c7d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 102212c8355fcb143852db9aa45ef3e0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fdf094a9ac703964d9bb8d562c20aaf6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 68b7ae92d93173f499bd65d3ff526f1e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3bd197183e44f8b4aaab23b3c4a30ce2, type: 2}

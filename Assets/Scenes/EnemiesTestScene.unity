@@ -612,6 +612,9 @@ GameObject:
   - component: {fileID: 554430825}
   - component: {fileID: 554430823}
   - component: {fileID: 554430826}
+  - component: {fileID: 554430827}
+  - component: {fileID: 554430828}
+  - component: {fileID: 554430829}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -838,6 +841,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyWeaponComponent: {fileID: 1869078153}
+  OnMovementBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMovementEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackingBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackingEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &554430827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554430818}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c0ad06a5ba760408048d401b374ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!95 &554430828
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554430818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86c90ea7eb61ce74984ec9a50715e80a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &554430829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554430818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8574b1710a54445b2dfbc4f55204c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _medievalControllerOverride: {fileID: 22100000, guid: 5320d3d9d83d5af4fab88e3b4f8e8ad6, type: 2}
+  _cyberpunkControllerOverride: {fileID: 22100000, guid: 7f031417be6e48f4580d24afae456c52, type: 2}
+  _enemyWeapon: {fileID: 1869078148}
 --- !u!1 &615657659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1168,8 @@ GameObject:
   - component: {fileID: 1869078153}
   - component: {fileID: 1869078152}
   - component: {fileID: 1869078151}
-  - component: {fileID: 1869078150}
+  - component: {fileID: 1869078154}
+  - component: {fileID: 1869078155}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -1111,27 +1186,13 @@ Transform:
   m_GameObject: {fileID: 1869078148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.105, y: -0.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1119274043}
   m_Father: {fileID: 554430822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869078150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869078148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e5621909d67d74aa222f386088324b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _medievalWeaponControllerOverride: {fileID: 22100000, guid: 01584b4924c4dc04f98e5ae43270f4a9, type: 2}
-  _cyberpunkWeaponControllerOverride: {fileID: 22100000, guid: 3f3289bdc9c4d314390b2ed1fa3b4e9d, type: 2}
 --- !u!95 &1869078151
 Animator:
   serializedVersion: 7
@@ -1142,7 +1203,7 @@ Animator:
   m_GameObject: {fileID: 1869078148}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee50a58c417a04e468042ddaf8442a0d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 37e1320362e528749b6c1100a4f38c7d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1228,6 +1289,34 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1869078154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869078148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300c468d0d0f623488fd1b4c1792e1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _socket: {fileID: 1119274043}
+  _enemyAIComponent: {fileID: 554430826}
+--- !u!114 &1869078155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869078148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c1cf85b6d4dff418d69ed27d2f57fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _medievalWeaponControllerOverride: {fileID: 22100000, guid: f24a31366bcbed4459d0c1d54ebf2677, type: 2}
+  _cyberpunkWeaponControllerOverride: {fileID: 22100000, guid: d318807656afdf74db760eb7837b1ec1, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
+using Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.Enemies;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Enemies
 {
     public class EnemyMovementComponent : MonoBehaviour
     {
@@ -14,14 +14,16 @@ namespace Assets.Scripts
         private Vector3 _direction = Vector3.zero;
 
         private EnemyAIComponent _enemyAIComponent;
-
+        private SpriteRenderer _spriteRenderer;
+        private EnemyWeaponRotateComponent _weaponRotateComponent;
 
         private void Start()
         {
             _enemyAIComponent = GetComponent<EnemyAIComponent>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _weaponRotateComponent = GetComponentInChildren<EnemyWeaponRotateComponent>();
 
-            _direction = (_patrolPoints[_currentTargetPointIndex].position - transform.position).normalized;
-            _direction.y = 0;
+            BeginMovement();
         }
 
         private void Update()
@@ -60,6 +62,7 @@ namespace Assets.Scripts
                     _patrolPoints.Reverse();
                 }
 
+                _enemyAIComponent.OnMovementEnd.Invoke();
                 StartCoroutine(StandGuard());
             }
         }
@@ -68,8 +71,26 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(1.5f);
 
+            BeginMovement();
+        }
+
+        private void BeginMovement()
+        {
             _direction = (_patrolPoints[_currentTargetPointIndex].position - transform.position).normalized;
             _direction.y = 0;
+
+            if (_direction.x > 0.0f)
+            {
+                _spriteRenderer.flipX = false;
+                _weaponRotateComponent.FlipRight();
+            }
+            else
+            {
+                _spriteRenderer.flipX = true;
+                _weaponRotateComponent.FlipLeft();
+            }
+
+            _enemyAIComponent.OnMovementBegin.Invoke();
         }
     }
 }

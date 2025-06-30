@@ -1,5 +1,6 @@
 using Assets.Scripts.SharedLogic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Enemies
 {
@@ -7,10 +8,17 @@ namespace Assets.Scripts.Enemies
     {
         [SerializeField] private ShootComponent _enemyWeaponComponent;
 
+        public UnityEvent OnMovementBegin = new UnityEvent();
+        public UnityEvent OnMovementEnd = new UnityEvent();
+
+        public UnityEvent OnAttackingBegin = new UnityEvent();
+        public UnityEvent OnAttackingEnd = new UnityEvent();
+
         private GameObject _player;
         private int _playerLayer;
         private int _visibilityMask;
-        private Vector2 _playerDirection;
+
+        public Vector3 PlayerDirection { get; private set; }
 
         public enum EnemyState
         {
@@ -35,12 +43,14 @@ namespace Assets.Scripts.Enemies
                 if (IsPlayerVisible())
                 {
                     CurrentEnemyState = EnemyState.Attacking;
+                    OnAttackingBegin.Invoke();
                     _enemyWeaponComponent.SetShouldShoot(true);
-                    _enemyWeaponComponent.SetDirection(_playerDirection);
+                    _enemyWeaponComponent.SetDirection(PlayerDirection);
                 }
                 else
                 {
                     CurrentEnemyState = EnemyState.Patrolling;
+                    OnAttackingEnd.Invoke();
                     _enemyWeaponComponent.SetShouldShoot(false);
                 }
             }
@@ -70,10 +80,10 @@ namespace Assets.Scripts.Enemies
         private bool IsPlayerVisible()
         {
             Vector2 origin = transform.position;
-            _playerDirection = (_player.transform.position - transform.position).normalized;
+            PlayerDirection = (_player.transform.position - transform.position).normalized;
             float distance = Vector2.Distance(origin, _player.transform.position);
 
-            RaycastHit2D hit = Physics2D.Raycast(origin, _playerDirection, distance, _visibilityMask);
+            RaycastHit2D hit = Physics2D.Raycast(origin, PlayerDirection, distance, _visibilityMask);
 
             if(!hit.collider)
             {

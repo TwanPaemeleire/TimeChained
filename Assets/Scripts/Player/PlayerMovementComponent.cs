@@ -78,7 +78,10 @@ namespace Assets.Scripts.Player
                 if (_previousInputMoveDirection.x == 0.0f && _inputMoveDirection.x != 0.0f) OnMovementBegin?.Invoke();
                 if(_inputMoveDirection.y < 0.0f && !(_previousInputMoveDirection.y < 0.0f)) // Player wants to drop down through platform
                 {
-                     StartCoroutine(DisableOneWayCollisions());
+                    if (_currentOneWayPlatform != null)
+                    {
+                        StartCoroutine(DisableOneWayCollisions());
+                    }
                 }
             }
         }

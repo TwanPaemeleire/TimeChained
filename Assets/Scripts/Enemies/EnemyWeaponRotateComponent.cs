@@ -1,19 +1,18 @@
 using Assets.Scripts.SharedLogic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Assets.Scripts.Player
+namespace Assets.Scripts.Enemies
 {
-    public class PlayerWeaponRotateComponent : MonoBehaviour
+    public class EnemyWeaponRotateComponent : MonoBehaviour
     {
         [SerializeField] private Transform _socket;
+        [SerializeField] private EnemyAIComponent _enemyAIComponent;
         private ShootComponent _shootComponent;
         private SpriteRenderer _spriteRenderer;
 
         private Vector3 _currentPointRotateAround;
         private Vector3 _socketPos;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         private void Start()
         {
             _shootComponent = GetComponent<ShootComponent>();
@@ -22,17 +21,11 @@ namespace Assets.Scripts.Player
             _socketPos = _socket.localPosition;
         }
 
-        // Update is called once per frame
         private void Update()
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            mouseWorldPos.z = 0f;
+            SetGunDirection(_enemyAIComponent.PlayerDirection);
 
-            Vector3 dirToMouse = (mouseWorldPos - transform.parent.position).normalized;
-            
-            SetGunDirection(dirToMouse);
-            
-            _shootComponent.SetDirection(dirToMouse);
+            _shootComponent.SetDirection(_enemyAIComponent.PlayerDirection);
         }
 
         public void FlipLeft()
