@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 80807530}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13851,63 +13851,6 @@ Transform:
   - {fileID: 1094827521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &867352865156934532
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006397553934408620, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968559233440038727, guid: eea64f51d74a081438487dca11d2a216, type: 3}
-      propertyPath: m_Name
-      value: BossBullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eea64f51d74a081438487dca11d2a216, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13922,4 +13865,3 @@ SceneRoots:
   - {fileID: 592823205}
   - {fileID: 2000912247}
   - {fileID: 80807529}
-  - {fileID: 867352865156934532}

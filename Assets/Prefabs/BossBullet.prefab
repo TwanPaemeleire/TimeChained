@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5006397553934408620}
   - component: {fileID: 2433076694002467699}
-  - component: {fileID: 2931819087561757624}
+  - component: {fileID: 4485396440630888626}
   - component: {fileID: 1018574065995525484}
-  - component: {fileID: 3136207138425435331}
   m_Layer: 0
   m_Name: BossBullet
   m_TagString: Untagged
@@ -90,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2931819087561757624
+--- !u!114 &4485396440630888626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,12 +98,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5968559233440038727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0834743516ee3fa498927ad54b60a346, type: 3}
+  m_Script: {fileID: 11500000, guid: fa71be81f11bb5347845c4d3d162fd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifetime: 3
   _cyberpunkBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
   _medievalBulletSprite: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
+  _pulseDelay: 1
+  _pulseStrenght: 10
+  _dragStrenght: 15
+  _impulseApplySpeed: 20
 --- !u!61 &1018574065995525484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,32 +152,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.3}
   m_EdgeRadius: 0
---- !u!50 &3136207138425435331
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968559233440038727}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

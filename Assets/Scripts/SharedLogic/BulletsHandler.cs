@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Boss;
 using Assets.Scripts.World;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -20,7 +21,7 @@ namespace Assets.Scripts.SharedLogic
         //private ObjectPool<GameObject> _bulletPool;
         private Dictionary<BulletType, ObjectPool<GameObject>> _bulletPools = new Dictionary<BulletType, ObjectPool<GameObject>>();
 
-        private void Start()
+        private void Awake()
         {
             _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
             _bulletPools.Add(BulletType.Boss, new ObjectPool<GameObject>(CreateBossBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
@@ -50,6 +51,7 @@ namespace Assets.Scripts.SharedLogic
         {
             var bulletObj = Instantiate(_bossBulletPrefab);
             bulletObj.transform.SetParent(transform, true);
+            bulletObj.GetComponent<PulseBullet>().Initialize();
             return bulletObj;
         }
 

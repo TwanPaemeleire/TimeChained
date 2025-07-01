@@ -12,7 +12,7 @@ namespace Assets.Scripts.SharedLogic
         public BulletType BulletType { set { _bulletType = value; } }
         private SpriteRenderer _bulletRenderer;
 
-        private float _speed = 6f;
+        protected float _speed = 6f;
         private string _shooterTag;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,7 +29,7 @@ namespace Assets.Scripts.SharedLogic
         }
 
         // Update is called once per frame
-        void Update()
+        protected virtual void Update()
         {
             transform.position += _speed * Time.deltaTime * transform.right;
         }
@@ -55,7 +55,7 @@ namespace Assets.Scripts.SharedLogic
             DestroyBullet();
         }
 
-        void DestroyBullet()
+        protected virtual void DestroyBullet()
         {
             CancelInvoke(nameof(DestroyBullet));
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);

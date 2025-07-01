@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Assets.Scripts.SharedLogic;
+using Assets.Scripts.Boss;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -8,6 +10,14 @@ public class BossBehavior : MonoBehaviour
     private BossFightBaseAttack _currentAttack = null;
     private int _lastAttackIndex = -1;
     private float _attackSpeedMultiplier = 1.0f;
+
+    private void Start()
+    {
+        PulseBullet pulseBullet = BulletsHandler.Instance.RequestBullet(BulletType.Boss).GetComponent<PulseBullet>();
+        pulseBullet.SetShooterTag(transform.tag);
+        pulseBullet.transform.position = transform.position;
+        pulseBullet.BulletType = BulletType.Boss;
+    }
 
     public void OnPlayerArrivedInArena()
     {
@@ -29,6 +39,7 @@ public class BossBehavior : MonoBehaviour
             _lastAttackIndex = randIndex;
             _currentAttack = newAttack;
             _currentAttack.OnAttackFinished.AddListener(OnCurrentAttackFinished);
+            _currentAttack.AttackSpeedMultiplier = _attackSpeedMultiplier;
             _currentAttack.Execute();
 
         } while (!newAttackFound);
