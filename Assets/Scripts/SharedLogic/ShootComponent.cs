@@ -11,6 +11,7 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private bool _shouldShoot; //for eg traps that just always shoot
         [SerializeField] private Vector3 _direction = new Vector3(1, 0, 0);
         [SerializeField] private Transform _socket;
+        [SerializeField] private BulletType _bulletType;
         private float _accumulatedTime;
 
         public UnityEvent OnShoot = new UnityEvent();
@@ -33,13 +34,15 @@ namespace Assets.Scripts.SharedLogic
 
         private void Shoot()
         {
-            GameObject bullet = BulletsHandler.Instance.RequestBullet();
+            GameObject bullet = BulletsHandler.Instance.RequestBullet(_bulletType);
 
             if (bullet != null)
             {    
                 bullet.transform.position = _socket.position;
                 bullet.transform.right = _direction.normalized;
-                bullet.GetComponent<BulletComponent>().SetShooterTag(transform.tag);
+                BulletComponent bulletComp = bullet.GetComponent<BulletComponent>();
+                bulletComp.SetShooterTag(transform.tag);
+                bulletComp.BulletType = _bulletType;
                 OnShoot?.Invoke();
             }
         }

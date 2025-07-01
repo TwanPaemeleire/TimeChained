@@ -1,38 +1,55 @@
 using System;
+using System.Collections.Generic;
 using Assets.Scripts.World;
 using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Assets.Scripts.SharedLogic
 {
+    public enum BulletType
+    {
+        Player,
+        Boss,
+    }
+
     public class BulletsHandler : MonoSingleton<BulletsHandler>
     {
         [SerializeField] private int _maxBullets = 10;
-        [SerializeField] private GameObject _bulletPrefab;
-        private ObjectPool<GameObject> _bulletPool;
+        [SerializeField] private GameObject _playerBulletPrefab;
+        [SerializeField] private GameObject _bossBulletPrefab;
+        //private ObjectPool<GameObject> _bulletPool;
+        private Dictionary<BulletType, ObjectPool<GameObject>> _bulletPools = new Dictionary<BulletType, ObjectPool<GameObject>>();
 
         private void Start()
         {
-            _bulletPool = new ObjectPool<GameObject>(CreateBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets);
+            _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
+            _bulletPools.Add(BulletType.Boss, new ObjectPool<GameObject>(CreateBossBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
         }
 
-        public GameObject RequestBullet()
+        public GameObject RequestBullet(BulletType type)
         {
-            GameObject bullet = _bulletPool.Get();
+            GameObject bullet = _bulletPools[type].Get();
             bullet.GetComponent<BulletComponent>().Initialize();
             return bullet;
         }
 
-        public void ReturnBullet(GameObject bullet)
+        public void ReturnBullet(BulletType type, GameObject bullet)
         {
-            _bulletPool.Release(bullet);
+            _bulletPools[type].Release(bullet);
         }
 
-        GameObject CreateBullet()
+        GameObject CreatePlayerBullet()
         {
-            var bulletObj = Instantiate(_bulletPrefab);
+            var bulletObj = Instantiate(_playerBulletPrefab);
             bulletObj.transform.SetParent(transform, true);
             bulletObj.GetComponent<BulletComponent>().Initialize();
+            return bulletObj;
+        }
+
+        GameObject CreateBossBullet()
+        {
+            var bulletObj = Instantiate(_bossBulletPrefab);
+            bulletObj.transform.SetParent(transform, true);
             return bulletObj;
         }
 

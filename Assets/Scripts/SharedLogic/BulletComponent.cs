@@ -8,6 +8,8 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private float _maxLifetime = 3.0f;
         [SerializeField] private Sprite _cyberpunkBulletSprite;
         [SerializeField] private Sprite _medievalBulletSprite;
+        private BulletType _bulletType;
+        public BulletType BulletType { set { _bulletType = value; } }
         private SpriteRenderer _bulletRenderer;
 
         private float _speed = 6f;
@@ -56,7 +58,7 @@ namespace Assets.Scripts.SharedLogic
         void DestroyBullet()
         {
             CancelInvoke(nameof(DestroyBullet));
-            BulletsHandler.Instance.ReturnBullet(this.gameObject);
+            BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
         }
 
         void OnWorldSwap()
