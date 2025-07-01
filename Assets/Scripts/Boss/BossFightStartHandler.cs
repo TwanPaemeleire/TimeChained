@@ -1,17 +1,59 @@
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BossFightStartHandler : MonoBehaviour
 {
     [SerializeField] private CinemachineBrain _cinemachineBrain;
     [SerializeField] private CinemachineCamera _currentCamera;
     [SerializeField] private CinemachineCamera _bossFightCamera;
+    [SerializeField] private BoxCollider2D _playerPushCollider;
+    [SerializeField] private Transform _playerPushEndTransform;
+    private Vector3 _playerPushEndPos;
+
+    private void Start()
+    {
+        _playerPushEndPos = _playerPushEndTransform.position;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(HandleBossFightStart(collision.gameObject));
+        }
+    }
+
+    IEnumerator HandleBossFightStart(GameObject player)
+    {
+        var playerInput = player.GetComponent<PlayerInput>();
+        playerInput.DeactivateInput();
+
         _bossFightCamera.gameObject.SetActive(true);
-        _currentCamera.gameObject.SetActive(true);
-        Invoke(nameof(StartBossFight), _cinemachineBrain.DefaultBlend.Time);
+        _currentCamera.gameObject.SetActive(false);
+
+        _playerPushCollider.gameObject.SetActive(true);
+
+        Vector3 newBoxPos = player.transform.position;
+        newBoxPos.x -= _playerPushCollider.size.x / 2 + _playerPushCollider.size.x + 0.5f;
+        _playerPushCollider.transform.position = newBoxPos;
+
+        float elapsedTime = 0.0f;
+        Vector3 startPos = _playerPushCollider.transform.position;
+        float cinemachineBlendTime = _cinemachineBrain.DefaultBlend.Time;
+        while (elapsedTime < cinemachineBlendTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / cinemachineBlendTime;
+            float newX = Mathf.SmoothStep(startPos.x, _playerPushEndPos.x, progress);
+            Vector3 newPos = new Vector3(newX, _playerPushEndPos.y, _playerPushEndPos.z);
+            _playerPushCollider.transform.position = newPos;
+            yield return null;
+        }
+
+        playerInput.ActivateInput();
+        StartBossFight();
     }
 
     void StartBossFight()
