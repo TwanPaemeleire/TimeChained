@@ -1,10 +1,12 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class BossFightStartHandler : MonoBehaviour
 {
+    [SerializeField] private BossBehavior _boss;
     [SerializeField] private CinemachineBrain _cinemachineBrain;
     [SerializeField] private CinemachineCamera _currentCamera;
     [SerializeField] private CinemachineCamera _bossFightCamera;
@@ -12,9 +14,12 @@ public class BossFightStartHandler : MonoBehaviour
     [SerializeField] private Transform _playerPushEndTransform;
     private Vector3 _playerPushEndPos;
 
+    public UnityEvent OnPlayerArrivedInArena = new UnityEvent();
+
     private void Start()
     {
         _playerPushEndPos = _playerPushEndTransform.position;
+        OnPlayerArrivedInArena.AddListener(_boss.OnPlayerArrivedInArena);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +64,6 @@ public class BossFightStartHandler : MonoBehaviour
     void StartBossFight()
     {
         // Send event to boss to start
+        OnPlayerArrivedInArena?.Invoke();
     }
 }
