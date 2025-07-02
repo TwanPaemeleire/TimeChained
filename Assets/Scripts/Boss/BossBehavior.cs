@@ -52,7 +52,8 @@ namespace Assets.Scripts.Boss
 
         void OnDeath()
         {
-
+            _currentAttack.OnAttackFinished.RemoveListener(OnCurrentAttackFinished);
+            CancelInvoke(nameof(DoNewAttack));
         }
     }
 }

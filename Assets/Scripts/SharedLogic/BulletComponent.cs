@@ -16,17 +16,18 @@ namespace Assets.Scripts.SharedLogic
         protected float _startSpeed = 6f;
         private string _shooterTag;
         private bool _shotFromTrap = false;
+        private bool _isBeingReturnedToPool = false;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _bulletRenderer = GetComponent<SpriteRenderer>();
-            //WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
             OnWorldSwap();
         }
 
         public virtual void Initialize()
         {
+            _isBeingReturnedToPool = false;
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
             Invoke(nameof(DestroyBullet), _maxLifetime);
         }
@@ -51,7 +52,7 @@ namespace Assets.Scripts.SharedLogic
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
+            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || collision.CompareTag("OneWayPlatform") || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
 
             if (collision.CompareTag("Player") || collision.CompareTag("Enemy") || collision.CompareTag("Boss")) 
             {
@@ -62,13 +63,16 @@ namespace Assets.Scripts.SharedLogic
                     healthComponent.GetHit();
                 }
 
-                transform.gameObject.SetActive(false);
+                //transform.gameObject.SetActive(false);
             }
             DestroyBullet();
         }
 
         protected virtual void DestroyBullet()
         {
+            if(_isBeingReturnedToPool) return;
+            _isBeingReturnedToPool = true;
+
             CancelInvoke(nameof(DestroyBullet));
             _speed = _startSpeed;
             WorldSwapHandler.Instance.OnWorldSwap.RemoveListener(OnWorldSwap);
