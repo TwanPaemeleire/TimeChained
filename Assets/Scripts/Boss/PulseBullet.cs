@@ -1,10 +1,11 @@
 using System.Collections;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using Assets.Scripts.SharedLogic;
 
 namespace Assets.Scripts.Boss
 {
-    public class PulseBullet : Assets.Scripts.SharedLogic.BulletComponent
+    public class PulseBullet : BulletComponent
     {
         [Header("Impulse Settings")]
         [SerializeField] private float _pulseDelay = 1.0f;
