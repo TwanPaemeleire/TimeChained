@@ -12611,8 +12611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f159b957444a46844beede3771b7d346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canExecuteConsecutive: 0
-  _delayAfterAttack: 1
+  _canExecuteConsecutive: 1
+  _delayAfterAttack: 2
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []

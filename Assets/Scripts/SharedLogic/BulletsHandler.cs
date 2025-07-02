@@ -24,11 +24,22 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private GameObject _bossPulseBulletPrefab;
         private Dictionary<BulletType, ObjectPool<GameObject>> _bulletPools = new Dictionary<BulletType, ObjectPool<GameObject>>();
 
+        private GameObject _playerBulletsContainer;
+        private GameObject _bossPulseBulletsContainer;
+        private GameObject _bossDefaultBulletsContainer;
+
         private void Awake()
         {
-            _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxPlayerBullets, _maxPlayerBullets));
-            _bulletPools.Add(BulletType.BossDefault, new ObjectPool<GameObject>(CreateBossDefaultBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBossDefaultBullets, _maxBossDefaultBullets));
-            _bulletPools.Add(BulletType.BossPulse, new ObjectPool<GameObject>(CreateBossPulseBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBossPulseBullets, _maxBossPulseBullets));
+            _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, OnBulletDestroyed, true, _maxPlayerBullets, _maxPlayerBullets));
+            _bulletPools.Add(BulletType.BossDefault, new ObjectPool<GameObject>(CreateBossDefaultBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, OnBulletDestroyed, true, _maxBossDefaultBullets, _maxBossDefaultBullets));
+            _bulletPools.Add(BulletType.BossPulse, new ObjectPool<GameObject>(CreateBossPulseBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, OnBulletDestroyed, true, _maxBossPulseBullets, _maxBossPulseBullets));
+
+            _playerBulletsContainer = new GameObject("PlayerBulletsContainer");
+            _playerBulletsContainer.transform.SetParent(transform, true);
+            _bossPulseBulletsContainer = new GameObject("BossPulseBulletsContainer");
+            _bossPulseBulletsContainer.transform.SetParent(transform, true);
+            _bossDefaultBulletsContainer = new GameObject("BossDefaultBulletsContainer");
+            _bossDefaultBulletsContainer.transform.SetParent(transform, true);
         }
 
         public GameObject RequestBullet(BulletType type)
@@ -53,14 +64,14 @@ namespace Assets.Scripts.SharedLogic
         GameObject CreatePlayerBullet()
         {
             var bulletObj = Instantiate(_playerBulletPrefab);
-            bulletObj.transform.SetParent(transform, true);
+            bulletObj.transform.SetParent(_playerBulletsContainer.transform, true);
             return bulletObj;
         }
 
         GameObject CreateBossDefaultBullet()
         {
             var bulletObj = Instantiate(_bossDefaultBulletPrefab);
-            bulletObj.transform.SetParent(transform, true);
+            bulletObj.transform.SetParent(_bossDefaultBulletsContainer.transform, true);
             bulletObj.GetComponent<BulletComponent>().BulletType = BulletType.BossDefault;
             return bulletObj;
         }
@@ -68,7 +79,7 @@ namespace Assets.Scripts.SharedLogic
         GameObject CreateBossPulseBullet()
         {
             var bulletObj = Instantiate(_bossPulseBulletPrefab);
-            bulletObj.transform.SetParent(transform, true);
+            bulletObj.transform.SetParent(_bossPulseBulletsContainer.transform, true);
             PulseBullet pulseBullet = bulletObj.GetComponent<PulseBullet>();
             pulseBullet.BulletType = BulletType.BossPulse;
             return bulletObj;
@@ -82,6 +93,11 @@ namespace Assets.Scripts.SharedLogic
         void OnTakeBulletFromPool(GameObject bullet)
         {
             bullet.SetActive(true);
+        }
+
+        void OnBulletDestroyed(GameObject bullet)
+        {
+            Destroy(bullet);
         }
     }
 }
