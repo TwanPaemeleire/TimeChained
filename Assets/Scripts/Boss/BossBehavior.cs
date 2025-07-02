@@ -13,6 +13,11 @@ namespace Assets.Scripts.Boss
         private int _lastAttackIndex = -1;
         private float _attackSpeedMultiplier = 1.0f;
 
+        private void Start()
+        {
+            GetComponent<HealthComponent>().OnDeath.AddListener(OnDeath);
+        }
+
         public void OnPlayerArrivedInArena()
         {
             Invoke(nameof(DoNewAttack), _firstAttackDelay);
@@ -43,6 +48,11 @@ namespace Assets.Scripts.Boss
         void OnCurrentAttackFinished()
         {
             Invoke(nameof(DoNewAttack), _currentAttack.DelayAfterAttack);
+        }
+
+        void OnDeath()
+        {
+
         }
     }
 }

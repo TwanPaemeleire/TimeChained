@@ -21,12 +21,13 @@ namespace Assets.Scripts.SharedLogic
         void Start()
         {
             _bulletRenderer = GetComponent<SpriteRenderer>();
-            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+            //WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
             OnWorldSwap();
         }
 
         public virtual void Initialize()
         {
+            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
             Invoke(nameof(DestroyBullet), _maxLifetime);
         }
 
@@ -52,7 +53,7 @@ namespace Assets.Scripts.SharedLogic
         {
             if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
 
-            if (collision.CompareTag("Player") || collision.CompareTag("Enemy")) 
+            if (collision.CompareTag("Player") || collision.CompareTag("Enemy") || collision.CompareTag("Boss")) 
             {
                 var healthComponent = collision.gameObject.GetComponent<HealthComponent>();
 
@@ -63,7 +64,6 @@ namespace Assets.Scripts.SharedLogic
 
                 transform.gameObject.SetActive(false);
             }
-
             DestroyBullet();
         }
 
@@ -71,6 +71,7 @@ namespace Assets.Scripts.SharedLogic
         {
             CancelInvoke(nameof(DestroyBullet));
             _speed = _startSpeed;
+            WorldSwapHandler.Instance.OnWorldSwap.RemoveListener(OnWorldSwap);
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
         }
 
