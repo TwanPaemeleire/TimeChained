@@ -104,11 +104,11 @@ MonoBehaviour:
   _maxLifetime: 3
   _cyberpunkBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
   _medievalBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
-  _pulseDelay: 1
-  _pulseStrenght: 10
-  _dragStrenght: 15
+  _pulseDelay: 0.8
+  _pulseStrenght: 6
+  _dragStrenght: 10
   _impulseApplySpeed: 20
-  _minimumSpeed: 5
+  _minimumSpeed: 1
 --- !u!58 &4358881722850614787
 CircleCollider2D:
   m_ObjectHideFlags: 0

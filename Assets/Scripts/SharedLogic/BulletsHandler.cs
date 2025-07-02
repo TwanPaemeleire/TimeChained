@@ -15,16 +15,16 @@ namespace Assets.Scripts.SharedLogic
 
     public class BulletsHandler : MonoSingleton<BulletsHandler>
     {
-        [SerializeField] private int _maxBullets = 10;
+        [SerializeField] private int _maxPlayerBullets = 10;
+        [SerializeField] private int _maxBossBullets = 10;
         [SerializeField] private GameObject _playerBulletPrefab;
         [SerializeField] private GameObject _bossBulletPrefab;
-        //private ObjectPool<GameObject> _bulletPool;
         private Dictionary<BulletType, ObjectPool<GameObject>> _bulletPools = new Dictionary<BulletType, ObjectPool<GameObject>>();
 
         private void Awake()
         {
-            _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
-            _bulletPools.Add(BulletType.Boss, new ObjectPool<GameObject>(CreateBossBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBullets, _maxBullets));
+            _bulletPools.Add(BulletType.Player, new ObjectPool<GameObject>(CreatePlayerBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxPlayerBullets, _maxPlayerBullets));
+            _bulletPools.Add(BulletType.Boss, new ObjectPool<GameObject>(CreateBossBullet, OnTakeBulletFromPool, OnBulletReturnedToPool, null, true, _maxBossBullets, _maxBossBullets));
         }
 
         public GameObject RequestBullet(BulletType type)
@@ -51,7 +51,9 @@ namespace Assets.Scripts.SharedLogic
         {
             var bulletObj = Instantiate(_bossBulletPrefab);
             bulletObj.transform.SetParent(transform, true);
-            bulletObj.GetComponent<PulseBullet>().Initialize();
+            PulseBullet pulseBullet = bulletObj.GetComponent<PulseBullet>();
+            pulseBullet.Initialize();
+            pulseBullet.BulletType = BulletType.Boss;
             return bulletObj;
         }
 

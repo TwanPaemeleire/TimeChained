@@ -13,15 +13,10 @@ namespace Assets.Scripts.Boss
         [SerializeField] private float _impulseApplySpeed = 5.0f;
         [SerializeField] private float _minimumSpeed = 5.0f;
 
+        private bool _isFirstImpulse = true;
         Coroutine _impulseCoroutine;
         Coroutine _dragCoroutine;
         // Change sprites on pulse???
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-            InvokeRepeating(nameof(DoImpulse), 0, _pulseDelay);
-        }
 
         // Update is called once per frame
         protected override void Update()
@@ -32,15 +27,22 @@ namespace Assets.Scripts.Boss
         protected override void DestroyBullet()
         {
             CancelInvoke(nameof(DoImpulse));
-            StopCoroutine(_impulseCoroutine);
+            if(_impulseCoroutine != null) StopCoroutine(_impulseCoroutine);
             StopCoroutine(_dragCoroutine);
             base.DestroyBullet();
         }
 
-            void DoImpulse()
+        public override void Initialize()
+        {
+            base.Initialize();
+            _speed = 0.0f;
+            InvokeRepeating(nameof(DoImpulse), 0, _pulseDelay);
+            _dragCoroutine = StartCoroutine(ApplyDrag());
+        }
+
+        void DoImpulse()
         {
             _impulseCoroutine = StartCoroutine(ApplyImpulse());
-            _dragCoroutine = StartCoroutine(ApplyDrag());
         }
 
         IEnumerator ApplyImpulse()
@@ -52,17 +54,22 @@ namespace Assets.Scripts.Boss
                 addedImpulse += impulseToAdd;
                 _speed += impulseToAdd;
             }
+            _isFirstImpulse = false;
+            _impulseCoroutine = null;
             yield return null;
         }
 
         IEnumerator ApplyDrag()
         {
-            while(_speed > _minimumSpeed)
+            while(true)
             {
                 _speed -= _dragStrenght * Time.deltaTime;
+                if (_speed < _minimumSpeed && !_isFirstImpulse)
+                {
+                    _speed = _minimumSpeed;
+                }
                 yield return null;
             }
-            _speed = _minimumSpeed;
         }
     }
 }

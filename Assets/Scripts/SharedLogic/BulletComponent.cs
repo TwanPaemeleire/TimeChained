@@ -13,6 +13,7 @@ namespace Assets.Scripts.SharedLogic
         private SpriteRenderer _bulletRenderer;
 
         protected float _speed = 6f;
+        protected float _startSpeed = 6f;
         private string _shooterTag;
         private bool _shotFromTrap = false;
 
@@ -25,7 +26,7 @@ namespace Assets.Scripts.SharedLogic
             OnWorldSwap();
         }
 
-        public void Initialize()
+        public virtual void Initialize()
         {
             Invoke(nameof(DestroyBullet), _maxLifetime);
         }
@@ -70,6 +71,7 @@ namespace Assets.Scripts.SharedLogic
         protected virtual void DestroyBullet()
         {
             CancelInvoke(nameof(DestroyBullet));
+            _speed = _startSpeed;
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
         }
 

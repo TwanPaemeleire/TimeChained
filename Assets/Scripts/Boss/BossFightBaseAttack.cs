@@ -8,7 +8,7 @@ public abstract class BossFightBaseAttack : MonoBehaviour
     [SerializeField] private float _delayAfterAttack = 1.0f;
     public float DelayAfterAttack { get { return _delayAfterAttack; }}
     private float _attackSpeedMultiplier = 1.0f;
-    public float AttackSpeedMultiplier { set { _attackSpeedMultiplier = value; } }
+    public float AttackSpeedMultiplier { set { _attackSpeedMultiplier = value; } get { return _attackSpeedMultiplier; } }
 
     public UnityEvent OnAttackFinished = new UnityEvent();
 

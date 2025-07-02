@@ -11,14 +11,6 @@ public class BossBehavior : MonoBehaviour
     private int _lastAttackIndex = -1;
     private float _attackSpeedMultiplier = 1.0f;
 
-    private void Start()
-    {
-        PulseBullet pulseBullet = BulletsHandler.Instance.RequestBullet(BulletType.Boss).GetComponent<PulseBullet>();
-        pulseBullet.SetShooterTag(transform.tag);
-        pulseBullet.transform.position = transform.position;
-        pulseBullet.BulletType = BulletType.Boss;
-    }
-
     public void OnPlayerArrivedInArena()
     {
         Invoke(nameof(DoNewAttack), _firstAttackDelay);
@@ -35,6 +27,7 @@ public class BossBehavior : MonoBehaviour
         {
             int randIndex = Random.Range(0, _attacks.Count);
             if (randIndex == _lastAttackIndex && !_currentAttack.CanExecuteConsecutive) continue;
+            newAttackFound = true;
             BossFightBaseAttack newAttack = _attacks[randIndex];
             _lastAttackIndex = randIndex;
             _currentAttack = newAttack;
