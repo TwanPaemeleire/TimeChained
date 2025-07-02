@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5006397553934408620}
   - component: {fileID: 2433076694002467699}
   - component: {fileID: 4485396440630888626}
-  - component: {fileID: 1018574065995525484}
+  - component: {fileID: 4358881722850614787}
   m_Layer: 0
   m_Name: BossBullet
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
+  m_Sprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,14 +102,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifetime: 3
-  _cyberpunkBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
-  _medievalBulletSprite: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
+  _cyberpunkBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
+  _medievalBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
   _pulseDelay: 1
   _pulseStrenght: 10
   _dragStrenght: 15
   _impulseApplySpeed: 20
---- !u!61 &1018574065995525484
-BoxCollider2D:
+  _minimumSpeed: 5
+--- !u!58 &4358881722850614787
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,14 +144,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.25}
-    newSize: {x: 1, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.3}
-  m_EdgeRadius: 0
+  m_Radius: 0.125
