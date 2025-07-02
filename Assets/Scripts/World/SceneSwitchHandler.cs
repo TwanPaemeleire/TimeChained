@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.World
@@ -8,7 +9,10 @@ namespace Assets.Scripts.World
     {
         [SerializeField] private Animator _transitionAnimator;
         [SerializeField] private float _transitionDuration = 1.0f;
+        public float TransitionDuration{ get { return _transitionDuration; } }
         [SerializeField] private bool _hasBeginAnimation = true;
+
+        public UnityEvent OnSceneSwitchBegin = new UnityEvent();
 
         private void Awake()
         {
@@ -34,6 +38,7 @@ namespace Assets.Scripts.World
 
         IEnumerator SwitchScene(int sceneId)
         {
+            OnSceneSwitchBegin?.Invoke();
             _transitionAnimator.SetTrigger("Begin");
 
             yield return new WaitForSeconds(_transitionDuration);

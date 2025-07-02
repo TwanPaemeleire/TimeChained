@@ -41,8 +41,6 @@ namespace Assets.Scripts.Player
             {
                 _animator.runtimeAnimatorController = _medievalControllerOverride;
             }
-
-            Debug.Log("Changed after world");
         }
 
         void OnNewWorldFlicker()
