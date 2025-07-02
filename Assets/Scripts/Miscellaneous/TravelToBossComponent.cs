@@ -1,14 +1,17 @@
+using Assets.Scripts.World;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TravelToBossComponent : MonoBehaviour
 {
+    [SerializeField] private SceneSwitchHandler _sceneSwitchHandler;
+    [SerializeField] private int _newSceneIndex = 2;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("BossFightScene");   
+            _sceneSwitchHandler.RequestSceneTransition(_newSceneIndex);
         }
     }
 }

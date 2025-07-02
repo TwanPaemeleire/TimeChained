@@ -13,6 +13,8 @@ namespace Assets.Scripts.Boss
         [SerializeField] private bool _spawnAllAtOnce = false;
         [SerializeField] private int _amountOfTimesToRepeat = 1;
         [SerializeField] private float _repeatDelay = 0.5f;
+        [SerializeField] private float _minRandomAngleOffset = -15.0f;
+        [SerializeField] private float _maxRandomAngleOffset = 15.0f;
         private float _bulletDelay;
         private float _angleStep;
         private float _directionAngle = 0.0f;
@@ -43,7 +45,7 @@ namespace Assets.Scripts.Boss
                     else yield return new WaitForSeconds(_bulletDelay);
                 }
                 _directionAngle = 0.0f;
-                _directionAngle += Random.Range(-15.0f, 15.0f);
+                _directionAngle += Random.Range(_minRandomAngleOffset, _maxRandomAngleOffset);
                 yield return new WaitForSeconds(_repeatDelay);
             }
             OnAttackFinished?.Invoke();
