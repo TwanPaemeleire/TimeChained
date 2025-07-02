@@ -13,7 +13,7 @@ namespace Assets.Scripts.Enemies
         private Vector3 _currentPointRotateAround;
         private Vector3 _socketPos;
 
-        private void Start()
+        private void Awake()
         {
             _shootComponent = GetComponent<ShootComponent>();
             _spriteRenderer = GetComponent<SpriteRenderer>();

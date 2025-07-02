@@ -1042,6 +1042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4680988652008884932, guid: cd7dd26e95c7a924187d30b6a0cde979, type: 3}
+      propertyPath: _playerBulletPrefab
+      value: 
+      objectReference: {fileID: 6964356230958962664, guid: 66014d886453a8244a73034807956ac9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1286,6 +1290,7 @@ MonoBehaviour:
   _shouldShoot: 0
   _direction: {x: 1, y: 0, z: 0}
   _socket: {fileID: 1119274043}
+  _bulletType: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
