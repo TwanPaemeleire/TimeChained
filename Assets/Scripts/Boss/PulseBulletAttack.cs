@@ -32,7 +32,7 @@ namespace Assets.Scripts.Boss
                 for (int idx = 0; idx < _amountOfDirections; ++idx)
                 {
                     var bulletObj = BulletsHandler.Instance.RequestBullet(BulletType.BossPulse);
-                    bulletObj.transform.position = transform.position;
+                    bulletObj.transform.position = BulletSpawnPosition.position;
                     bulletObj.GetComponent<PulseBullet>().SetShooterTag(transform.tag);
 
                     Vector2 direction = new Vector2(Mathf.Cos(_directionAngle * Mathf.Deg2Rad), Mathf.Sin(_directionAngle * Mathf.Deg2Rad));

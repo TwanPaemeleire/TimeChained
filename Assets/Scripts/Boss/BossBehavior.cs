@@ -26,7 +26,7 @@ namespace Assets.Scripts.Boss
 
         public void OnPlayerArrivedInArena()
         {
-            //Invoke(nameof(DoNewAttack), _firstAttackDelay);
+            Invoke(nameof(DoNewAttack), _firstAttackDelay);
         }
 
         void DoNewAttack()

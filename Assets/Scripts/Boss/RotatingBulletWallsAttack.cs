@@ -53,7 +53,7 @@ public class RotatingBulletWallsAttack : BossFightBaseAttack
             Vector2 direction = new Vector2(Mathf.Cos(_shootingAngles[shooterIdx] * Mathf.Deg2Rad), Mathf.Sin(_shootingAngles[shooterIdx] * Mathf.Deg2Rad));
 
             var bulletObj = BulletsHandler.Instance.RequestBullet(BulletType.BossDefault);
-            bulletObj.transform.position = transform.position;
+            bulletObj.transform.position = BulletSpawnPosition.position;
             bulletObj.transform.right = direction.normalized;
             bulletObj.GetComponent<BulletComponent>().SetShooterTag(transform.tag);
             yield return new WaitForSeconds(_bulletShootDelay);

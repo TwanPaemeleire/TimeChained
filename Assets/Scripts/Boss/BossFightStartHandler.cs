@@ -19,6 +19,7 @@ namespace Assets.Scripts.Boss
         [SerializeField] private Transform _playerPushEndTransform;
         private Vector3 _playerPushEndPos;
 
+        public UnityEvent OnPlayerStartEnteringArena = new UnityEvent();
         public UnityEvent OnPlayerArrivedInArena = new UnityEvent();
 
         private void Start()
@@ -37,6 +38,8 @@ namespace Assets.Scripts.Boss
 
         IEnumerator HandleBossFightStart(GameObject player)
         {
+            OnPlayerStartEnteringArena?.Invoke();
+
             var playerInput = player.GetComponent<PlayerInput>();
             playerInput.DeactivateInput();
 
