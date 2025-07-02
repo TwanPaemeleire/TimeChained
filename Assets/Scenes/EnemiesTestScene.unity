@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 554430829}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -866,6 +866,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _spriteRenderer: {fileID: 0}
+  _flashDuration: 0.1
+  _flashColor: {r: 1, g: 0, b: 0, a: 1}
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -1176,7 +1179,7 @@ GameObject:
   - component: {fileID: 1869078155}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

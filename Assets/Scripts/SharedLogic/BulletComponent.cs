@@ -47,11 +47,19 @@ namespace Assets.Scripts.SharedLogic
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag)) return; //hits own shooter or other bullet
-            if(collision.CompareTag("Player"))
+
+            if (collision.CompareTag("Player") || collision.CompareTag("Enemy"))
             {
-                Debug.Log("Player hit");
+                var healthComponent = collision.gameObject.GetComponent<HealthComponent>();
+
+                if (healthComponent != null)
+                {
+                    healthComponent.GetHit();
+                }
+
                 transform.gameObject.SetActive(false);
             }
+
             DestroyBullet();
         }
 

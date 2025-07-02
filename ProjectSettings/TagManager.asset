@@ -9,6 +9,7 @@ TagManager:
   - OneWayPlatform
   - Bullet
   - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX
