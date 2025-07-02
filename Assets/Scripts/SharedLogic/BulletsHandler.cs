@@ -30,7 +30,14 @@ namespace Assets.Scripts.SharedLogic
         public GameObject RequestBullet(BulletType type)
         {
             GameObject bullet = _bulletPools[type].Get();
-            bullet.GetComponent<BulletComponent>().Initialize();
+            if(type == BulletType.Player)
+            {
+                bullet.GetComponent<BulletComponent>().Initialize();
+            }
+            else if(type == BulletType.Boss)
+            {
+                bullet.GetComponent<PulseBullet>().Initialize();
+            }
             return bullet;
         }
 
@@ -43,7 +50,6 @@ namespace Assets.Scripts.SharedLogic
         {
             var bulletObj = Instantiate(_playerBulletPrefab);
             bulletObj.transform.SetParent(transform, true);
-            bulletObj.GetComponent<BulletComponent>().Initialize();
             return bulletObj;
         }
 
@@ -52,7 +58,6 @@ namespace Assets.Scripts.SharedLogic
             var bulletObj = Instantiate(_bossBulletPrefab);
             bulletObj.transform.SetParent(transform, true);
             PulseBullet pulseBullet = bulletObj.GetComponent<PulseBullet>();
-            pulseBullet.Initialize();
             pulseBullet.BulletType = BulletType.Boss;
             return bulletObj;
         }

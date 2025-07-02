@@ -3,43 +3,46 @@ using System.Collections.Generic;
 using Assets.Scripts.SharedLogic;
 using Assets.Scripts.Boss;
 
-public class BossBehavior : MonoBehaviour
+namespace Assets.Scripts.Boss
 {
-    [SerializeField] private List<BossFightBaseAttack> _attacks;
-    [SerializeField] private float _firstAttackDelay = 1.0f;
-    private BossFightBaseAttack _currentAttack = null;
-    private int _lastAttackIndex = -1;
-    private float _attackSpeedMultiplier = 1.0f;
-
-    public void OnPlayerArrivedInArena()
+    public class BossBehavior : MonoBehaviour
     {
-        Invoke(nameof(DoNewAttack), _firstAttackDelay);
-    }
+        [SerializeField] private List<BossFightBaseAttack> _attacks;
+        [SerializeField] private float _firstAttackDelay = 1.0f;
+        private BossFightBaseAttack _currentAttack = null;
+        private int _lastAttackIndex = -1;
+        private float _attackSpeedMultiplier = 1.0f;
 
-    void DoNewAttack()
-    {
-        if (_currentAttack!=null)
+        public void OnPlayerArrivedInArena()
         {
-            _currentAttack.OnAttackFinished.RemoveListener(OnCurrentAttackFinished);
+            Invoke(nameof(DoNewAttack), _firstAttackDelay);
         }
-        bool newAttackFound = false;
-        do
+
+        void DoNewAttack()
         {
-            int randIndex = Random.Range(0, _attacks.Count);
-            if (randIndex == _lastAttackIndex && !_currentAttack.CanExecuteConsecutive) continue;
-            newAttackFound = true;
-            BossFightBaseAttack newAttack = _attacks[randIndex];
-            _lastAttackIndex = randIndex;
-            _currentAttack = newAttack;
-            _currentAttack.OnAttackFinished.AddListener(OnCurrentAttackFinished);
-            _currentAttack.AttackSpeedMultiplier = _attackSpeedMultiplier;
-            _currentAttack.Execute();
+            if (_currentAttack != null)
+            {
+                _currentAttack.OnAttackFinished.RemoveListener(OnCurrentAttackFinished);
+            }
+            bool newAttackFound = false;
+            do
+            {
+                int randIndex = Random.Range(0, _attacks.Count);
+                if (randIndex == _lastAttackIndex && !_currentAttack.CanExecuteConsecutive) continue;
+                newAttackFound = true;
+                BossFightBaseAttack newAttack = _attacks[randIndex];
+                _lastAttackIndex = randIndex;
+                _currentAttack = newAttack;
+                _currentAttack.OnAttackFinished.AddListener(OnCurrentAttackFinished);
+                _currentAttack.AttackSpeedMultiplier = _attackSpeedMultiplier;
+                _currentAttack.Execute();
 
-        } while (!newAttackFound);
-    }
+            } while (!newAttackFound);
+        }
 
-    void OnCurrentAttackFinished()
-    {
-        Invoke(nameof(DoNewAttack), _currentAttack.DelayAfterAttack);
+        void OnCurrentAttackFinished()
+        {
+            Invoke(nameof(DoNewAttack), _currentAttack.DelayAfterAttack);
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace Assets.Scripts.Boss
         {
             base.Initialize();
             _speed = 0.0f;
+            _isFirstImpulse = true;
             InvokeRepeating(nameof(DoImpulse), 0, _pulseDelay);
             _dragCoroutine = StartCoroutine(ApplyDrag());
         }
@@ -52,11 +53,15 @@ namespace Assets.Scripts.Boss
             {
                 float impulseToAdd = _pulseStrenght * Time.deltaTime * _impulseApplySpeed;
                 addedImpulse += impulseToAdd;
+                if(addedImpulse > _pulseStrenght)
+                {
+                    impulseToAdd = _pulseStrenght - (addedImpulse - impulseToAdd);
+                }
                 _speed += impulseToAdd;
+                yield return null;
             }
             _isFirstImpulse = false;
             _impulseCoroutine = null;
-            yield return null;
         }
 
         IEnumerator ApplyDrag()
