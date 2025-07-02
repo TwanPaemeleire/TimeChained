@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0834743516ee3fa498927ad54b60a346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLifetime: 3
+  _maxLifetime: 5
   _cyberpunkBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
   _medievalBulletSprite: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
 --- !u!61 &-6204344679361697265

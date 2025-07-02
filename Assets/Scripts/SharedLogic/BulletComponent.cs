@@ -21,6 +21,7 @@ namespace Assets.Scripts.SharedLogic
             _bulletRenderer = GetComponent<SpriteRenderer>();
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
             Initialize();
+            OnWorldSwap();
         }
 
         public void Initialize()
