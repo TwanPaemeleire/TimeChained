@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 2318084941085511441}
   - component: {fileID: 850635412379818201}
   - component: {fileID: 7031867361943058969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -541,6 +541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _spriteRenderer: {fileID: 0}
+  _flashDuration: 0.1
+  _flashColor: {r: 1, g: 0, b: 0, a: 1}
   OnHit:
     m_PersistentCalls:
       m_Calls: []

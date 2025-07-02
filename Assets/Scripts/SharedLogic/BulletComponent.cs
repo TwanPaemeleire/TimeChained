@@ -14,6 +14,7 @@ namespace Assets.Scripts.SharedLogic
 
         protected float _speed = 6f;
         private string _shooterTag;
+        private bool _shotFromTrap = false;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -43,13 +44,15 @@ namespace Assets.Scripts.SharedLogic
         public void SetShooterTag(string tag)
         {
             _shooterTag = tag;
+            if (tag == "Trap") _shotFromTrap = true; //setting it here so not continuously checking in OnTriggerEnter
+            else _shotFromTrap = false; //NEED TO DO THIS, memory pool doesnt reset bool, so need to reset every time new tag gets set
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag)) return; //hits own shooter or other bullet
+            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
 
-            if (collision.CompareTag("Player") || collision.CompareTag("Enemy"))
+            if (collision.CompareTag("Player") || collision.CompareTag("Enemy")) 
             {
                 var healthComponent = collision.gameObject.GetComponent<HealthComponent>();
 
