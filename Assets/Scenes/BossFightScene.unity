@@ -737,7 +737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &302796406
 Transform:
   m_ObjectHideFlags: 0
@@ -811,10 +811,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9531ba18f6a8642aa11ca84177bb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boss: {fileID: 0}
+  _boss: {fileID: 80807530}
   _cinemachineBrain: {fileID: 1565504485}
   _currentCamera: {fileID: 823513084}
   _bossFightCamera: {fileID: 592823204}
+  _pixelPerfectCamera: {fileID: 1565504483}
+  _targetAssetsPPU: 16
   _playerPushCollider: {fileID: 2000912246}
   _playerPushEndTransform: {fileID: 1094827521}
   OnPlayerArrivedInArena:
@@ -11910,7 +11912,7 @@ Transform:
   m_GameObject: {fileID: 592823202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.88, y: -18.31, z: -36.37713}
+  m_LocalPosition: {x: 10.11, y: -16.08, z: -36.37713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
