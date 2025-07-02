@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Assets.Scripts.SharedLogic;
 using Assets.Scripts.Boss;
+using Assets.Scripts.World;
 
 namespace Assets.Scripts.Boss
 {
@@ -9,6 +10,9 @@ namespace Assets.Scripts.Boss
     {
         [SerializeField] private List<BossFightBaseAttack> _attacks;
         [SerializeField] private float _firstAttackDelay = 1.0f;
+        [SerializeField] private AnimatorOverrideController _pastControllerOverride;
+        [SerializeField] private AnimatorOverrideController _futureControllerOverride;
+        private Animator _animator;
         private BossFightBaseAttack _currentAttack = null;
         private int _lastAttackIndex = -1;
         private float _attackSpeedMultiplier = 1.0f;
@@ -16,11 +20,13 @@ namespace Assets.Scripts.Boss
         private void Start()
         {
             GetComponent<HealthComponent>().OnDeath.AddListener(OnDeath);
+            _animator = GetComponent<Animator>();
+            WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
         }
 
         public void OnPlayerArrivedInArena()
         {
-            Invoke(nameof(DoNewAttack), _firstAttackDelay);
+            //Invoke(nameof(DoNewAttack), _firstAttackDelay);
         }
 
         void DoNewAttack()
@@ -54,6 +60,18 @@ namespace Assets.Scripts.Boss
         {
             _currentAttack.OnAttackFinished.RemoveListener(OnCurrentAttackFinished);
             CancelInvoke(nameof(DoNewAttack));
+        }
+
+        void OnWorldSwap()
+        {
+            if(WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                _animator.runtimeAnimatorController = _futureControllerOverride;
+            }
+            else
+            {
+                _animator.runtimeAnimatorController = _pastControllerOverride;
+            }
         }
     }
 }

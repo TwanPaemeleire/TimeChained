@@ -1,7 +1,5 @@
-using Assets.Scripts.Boss;
 using Assets.Scripts.SharedLogic;
 using System.Collections;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Assets.Scripts.Boss

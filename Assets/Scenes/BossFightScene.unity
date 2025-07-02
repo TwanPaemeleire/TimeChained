@@ -213,6 +213,8 @@ MonoBehaviour:
   - {fileID: 2125695913}
   - {fileID: 1339574730}
   _firstAttackDelay: 1
+  _pastControllerOverride: {fileID: 22100000, guid: d45608f86d7a35b4682579fd848d66cb, type: 2}
+  _futureControllerOverride: {fileID: 22100000, guid: 6c2e796d73ceb7342ae85f52222c53e9, type: 2}
 --- !u!212 &80807532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13302,7 +13304,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.109375
+  orthographic size: 12.701636
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
