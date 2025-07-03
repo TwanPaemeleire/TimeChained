@@ -13,6 +13,7 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private Color _healFlashColor = Color.limeGreen;
         [SerializeField] private bool _destroyedOnDeath = true;
 
+        private bool _hasDied = false;
         private float _currentHealth;
         private float _invulnerableTimer;
         private Color _originalColor;
@@ -57,7 +58,9 @@ namespace Assets.Scripts.SharedLogic
 
         public void Kill()
         {
+            if (_hasDied) return;
             _currentHealth = 0.0f;
+            _hasDied = true;
             OnDeath?.Invoke();
 
             if (_destroyedOnDeath)

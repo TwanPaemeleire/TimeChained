@@ -285,6 +285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attacks:
+  - {fileID: 1299336353}
+  - {fileID: 2125695913}
+  - {fileID: 1339574730}
   - {fileID: 624101326}
   _firstAttackDelay: 1
   _pastControllerOverride: {fileID: 22100000, guid: d45608f86d7a35b4682579fd848d66cb, type: 2}
@@ -21914,7 +21917,7 @@ GameObject:
   - component: {fileID: 717065146}
   - component: {fileID: 717065148}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: GraphicsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34833,8 +34836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0063b208d35d0468dc2ea9b270b1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canExecuteConsecutive: 1
-  _delayAfterAttack: 2
+  _canExecuteConsecutive: 0
+  _delayAfterAttack: 1
   _bulletSpawnPosition: {fileID: 750042040}
   OnAttackFinished:
     m_PersistentCalls:
@@ -35933,7 +35936,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1565504482}
   - component: {fileID: 1565504481}
-  - component: {fileID: 1565504480}
   - component: {fileID: 1565504484}
   - component: {fileID: 1565504483}
   - component: {fileID: 1565504485}
@@ -35944,14 +35946,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1565504480
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565504479}
-  m_Enabled: 1
 --- !u!20 &1565504481
 Camera:
   m_ObjectHideFlags: 0
@@ -35987,7 +35981,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.701636
+  orthographic size: 2.109375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
