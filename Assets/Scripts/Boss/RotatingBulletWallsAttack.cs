@@ -11,6 +11,7 @@ public class RotatingBulletWallsAttack : BossFightBaseAttack
     [SerializeField] private float _bulletShootDelay = 0.2f;
     [SerializeField] private float _amountOffFullRotations = 1.0f;
     [SerializeField] private float _rotationSpeed = 1.0f;
+    [SerializeField] private float _rotationSpeedApplyTime = 2.0f;
 
     private float _shooterAngleInterval;
     List<Coroutine> _shootingCoroutines = new List<Coroutine>();
@@ -33,9 +34,12 @@ public class RotatingBulletWallsAttack : BossFightBaseAttack
 
         StartCoroutine(ShootBullet(shooterIdx));
 
+        float elapsedTime = 0.0f;
         while (angleTracker < _amountOffFullRotations * 360.0f)
         {
-            float angleToAdd = _rotationSpeed * Time.deltaTime;
+            elapsedTime += Time.deltaTime;
+            float smoothSpeedIncrease = Mathf.SmoothStep(0.0f, _rotationSpeed, elapsedTime / _rotationSpeedApplyTime);
+            float angleToAdd = smoothSpeedIncrease * Time.deltaTime;
             _shootingAngles[shooterIdx] += angleToAdd;
             angleTracker += angleToAdd;
             yield return null;
