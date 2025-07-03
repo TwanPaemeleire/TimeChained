@@ -104,7 +104,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3644575227725893885}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -271,7 +271,9 @@ MonoBehaviour:
   _maxHealth: 3
   _spriteRenderer: {fileID: 0}
   _flashDuration: 0.1
-  _flashColor: {r: 1, g: 0, b: 0, a: 1}
+  _damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  _healFlashColor: {r: 0.1960784, g: 0.8039216, b: 0.1960784, a: 1}
+  _destroyedOnDeath: 1
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -372,7 +374,10 @@ MonoBehaviour:
   _direction: {x: 1, y: 0, z: 0}
   _socket: {fileID: 1632835709919735057}
   _bulletType: 0
-  OnShoot:
+  OnShootFuture:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootPast:
     m_PersistentCalls:
       m_Calls: []
 --- !u!212 &3076693764187818286
