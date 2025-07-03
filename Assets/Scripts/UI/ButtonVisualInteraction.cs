@@ -17,6 +17,13 @@ namespace Assets.Scripts.UI
         private Image _buttonImage;
         private Coroutine _scaleCoroutine;
 
+        private void OnEnable()
+        {
+            if (_buttonImage == null) _buttonImage = GetComponent<Image>();
+            _hasMadeSelection = false;
+            _buttonImage.sprite = _default;
+            transform.localScale = Vector3.one;
+        }
         private void Awake()
         {
             _buttonImage = GetComponent<Image>();
