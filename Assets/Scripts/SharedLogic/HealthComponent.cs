@@ -13,6 +13,7 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private bool _destroyedOnDeath = true;
 
         private float _currentHealth;
+        private float _invulnerableTimer;
         private Color _originalColor;
 
         public UnityEvent OnHit = new UnityEvent();
@@ -25,12 +26,27 @@ namespace Assets.Scripts.SharedLogic
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _originalColor = _spriteRenderer.color;
         }
+
+        private void Update()
+        {
+            if (_invulnerableTimer > 0.0f)
+            {
+                _invulnerableTimer -= Time.deltaTime;
+            }
+        }
     
         public void GetHit(float damage = 1.0f)
         {
+            if (_invulnerableTimer > 0.0f)
+            {
+                return;
+            }
+
             _currentHealth -= damage;
             FlashSprite();
             OnHit?.Invoke();
+
+            _invulnerableTimer = 0.3f;
 
             if (_currentHealth <= 0.0f)
             {

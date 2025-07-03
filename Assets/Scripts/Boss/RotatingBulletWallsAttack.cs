@@ -18,7 +18,7 @@ public class RotatingBulletWallsAttack : BossFightBaseAttack
     public override void Execute()
     {
         _shooterAngleInterval = 360.0f / (float)_amountOfShooters;
-        for(int shooterIdx =0; shooterIdx < _amountOfShooters; ++shooterIdx)
+        for (int shooterIdx = 0; shooterIdx < _amountOfShooters; ++shooterIdx)
         {
             float angle = shooterIdx * _shooterAngleInterval;
             _shootingAngles.Add(angle);

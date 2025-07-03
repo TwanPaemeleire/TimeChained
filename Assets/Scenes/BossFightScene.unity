@@ -309,6 +309,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 80807532}
   _flashDuration: 0.1
   _flashColor: {r: 1, g: 0, b: 0, a: 1}
+  _destroyedOnDeath: 1
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -12909,6 +12910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7031867361943058969, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
+      propertyPath: _destroyedOnDeath
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13334,7 +13339,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.109375
+  orthographic size: 12.701636
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
