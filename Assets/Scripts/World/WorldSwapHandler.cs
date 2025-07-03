@@ -6,7 +6,7 @@ namespace Assets.Scripts.World
 {
     public class WorldSwapHandler : MonoSingleton<WorldSwapHandler>
     {
-        [SerializeField] private float _timeBetweenSwaps = 5.0f;
+        private float _timeBetweenSwaps = 10.0f;
         [SerializeField] private int _amountOfFlickers = 4;
         [SerializeField] private float _flickerDuration = 0.2f;
 
