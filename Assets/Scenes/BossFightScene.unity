@@ -34378,6 +34378,10 @@ PrefabInstance:
       propertyPath: OnDoubleJumpBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 761371388}
+    - target: {fileID: 3269606782612599770, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
+      propertyPath: _fireRate
+      value: 0.85
+      objectReference: {fileID: 0}
     - target: {fileID: 6101028744876365989, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
       propertyPath: m_Name
       value: Player
