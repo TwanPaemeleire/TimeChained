@@ -12,6 +12,7 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private Color _damageFlashColor = Color.red;
         [SerializeField] private Color _healFlashColor = Color.limeGreen;
         [SerializeField] private bool _destroyedOnDeath = true;
+        [SerializeField] private float _invulnerableTimeAfterHit = 0.3f;
 
         private bool _hasDied = false;
         private bool _cannotDie = false;
@@ -59,7 +60,7 @@ namespace Assets.Scripts.SharedLogic
                 OnHalfHealthReached?.Invoke();
             }
 
-            _invulnerableTimer = 0.3f;
+            _invulnerableTimer = _invulnerableTimeAfterHit;
 
             if (_currentHealth <= 0.0f)
             {

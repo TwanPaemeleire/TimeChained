@@ -388,6 +388,7 @@ MonoBehaviour:
   _damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
   _healFlashColor: {r: 0.1960784, g: 0.8039216, b: 0.1960784, a: 1}
   _destroyedOnDeath: 0
+  _invulnerableTimeAfterHit: 0.3
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -34439,6 +34440,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7031867361943058969, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
+      propertyPath: _invulnerableTimeAfterHit
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031867361943058969, guid: 025ef6bd1c061e94fba417f0dfb74773, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -36188,7 +36193,7 @@ MonoBehaviour:
   _amountOfShooters: 4
   _bulletShootDelay: 0.05
   _amountOffFullRotations: 0.5
-  _rotationSpeed: 60
+  _rotationSpeed: 45
   _rotationSpeedApplyTime: 2
 --- !u!1001 &1463123436
 PrefabInstance:
@@ -36444,7 +36449,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.701636
+  orthographic size: 2.109375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
