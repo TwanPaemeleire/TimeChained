@@ -9,7 +9,8 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private float _maxHealth = 3.0f;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private float _flashDuration = 0.1f;
-        [SerializeField] private Color _flashColor = Color.red;
+        [SerializeField] private Color _damageFlashColor = Color.red;
+        [SerializeField] private Color _healFlashColor = Color.limeGreen;
         [SerializeField] private bool _destroyedOnDeath = true;
 
         private float _currentHealth;
@@ -43,7 +44,7 @@ namespace Assets.Scripts.SharedLogic
             }
 
             _currentHealth -= damage;
-            FlashSprite();
+            FlashSprite(_damageFlashColor);
             OnHit?.Invoke();
 
             _invulnerableTimer = 0.3f;
@@ -67,6 +68,7 @@ namespace Assets.Scripts.SharedLogic
 
         public void Heal(float healAmount)
         {
+            FlashSprite(_healFlashColor);
             _currentHealth = Mathf.Clamp(_currentHealth += healAmount, 0, _maxHealth);
             OnHeal?.Invoke();
         }
@@ -76,15 +78,15 @@ namespace Assets.Scripts.SharedLogic
             return _currentHealth / _maxHealth;
         }
 
-        private void FlashSprite()
+        private void FlashSprite(Color flashColor)
         {
             StopAllCoroutines();
-            StartCoroutine(FlashCoroutine());
+            StartCoroutine(FlashCoroutine(flashColor));
         }
 
-        private IEnumerator FlashCoroutine()
+        private IEnumerator FlashCoroutine(Color flashColor)
         {
-            _spriteRenderer.color = _flashColor;
+            _spriteRenderer.color = flashColor;
             yield return new WaitForSeconds(_flashDuration);
             _spriteRenderer.color = _originalColor;
         }

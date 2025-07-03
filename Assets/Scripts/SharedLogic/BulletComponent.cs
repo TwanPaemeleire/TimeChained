@@ -65,7 +65,7 @@ namespace Assets.Scripts.SharedLogic
 
                 if (healthComponent != null)
                 {
-                    healthComponent.GetHit();
+                    healthComponent.GetHit(1.0f);
                 }
 
                 //transform.gameObject.SetActive(false);
