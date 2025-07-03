@@ -11,6 +11,7 @@ namespace Assets.Scripts.Player
         [SerializeField] private float _speed = 5f;
         [SerializeField] private float _jumpStrength = 5f;
         [SerializeField] private float _maxJumpTime = 0.6f;
+        [SerializeField] private float _phasingPlatformForce = -1.0f;
 
         private SpriteRenderer _spriteRenderer;
         private Rigidbody2D _rigidbody;
@@ -20,6 +21,7 @@ namespace Assets.Scripts.Player
         private bool _canDoubleJump;
         private bool _isJumping;
         private bool _isHoldingJump;
+        private bool _isFalling;
         private float _jumpTimeCounter;
 
         private ShootComponent _shootComponent;
@@ -35,6 +37,7 @@ namespace Assets.Scripts.Player
         public UnityEvent OnJumpEnd = new UnityEvent();
 
         public UnityEvent OnDoubleJumpBegin = new UnityEvent();
+        public UnityEvent OnFallBegin = new UnityEvent();
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -51,13 +54,27 @@ namespace Assets.Scripts.Player
         {
             _rigidbody.linearVelocityX = _inputMoveDirection.x * _speed; // staying away from the y doesnt override gravity
             _isGrounded = Physics2D.Raycast(transform.position, -transform.up, 0.55f, LayerMask.GetMask("Ground")); //TODO: for later maybe two for each side (maybe even getting it from collider width?)
-            if(_isJumping && _isGrounded && _rigidbody.linearVelocityY <= 0f)
+
+            if (!_isJumping)
+            {
+                bool wasFalling = _isFalling;
+                _isFalling = !_isGrounded && _rigidbody.linearVelocityY < -0.1f;
+
+                if (_isFalling && !wasFalling)
+                {
+                    Debug.Log("Calling falling");
+                    _isJumping = true;
+                    OnFallBegin?.Invoke();
+                }
+            }
+
+            if (_isJumping && _isGrounded && _rigidbody.linearVelocityY <= 0.0f)
             {
                 _isJumping = false;
                 OnJumpEnd?.Invoke();
             }
 
-            if (_isHoldingJump && _jumpTimeCounter > 0)
+            if (_isJumping && _isHoldingJump && _jumpTimeCounter > 0)
             {
                 _rigidbody.AddForce(transform.up * _jumpStrength * Time.fixedDeltaTime, ForceMode2D.Impulse);
                 _jumpTimeCounter -= Time.fixedDeltaTime;
@@ -146,7 +163,7 @@ namespace Assets.Scripts.Player
         {
             BoxCollider2D oneWayPlatformCollider = _currentOneWayPlatform.GetComponent<BoxCollider2D>();
             Physics2D.IgnoreCollision(_boxCollider, oneWayPlatformCollider);
-            _rigidbody.AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
+            _rigidbody.AddForce(new Vector2(0, _phasingPlatformForce), ForceMode2D.Impulse);
             yield return new WaitForSeconds(0.25f);
             Physics2D.IgnoreCollision(_boxCollider, oneWayPlatformCollider, false);
         }

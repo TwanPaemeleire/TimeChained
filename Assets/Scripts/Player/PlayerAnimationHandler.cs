@@ -26,6 +26,7 @@ namespace Assets.Scripts.Player
             playerMovement.OnMovementEnd.AddListener(OnMovementEnd);
             playerMovement.OnJumpBegin.AddListener(OnJumpBegin);
             playerMovement.OnJumpEnd.AddListener(OnJumpEnd);
+            playerMovement.OnFallBegin.AddListener(OnFallBegin);
         }
 
         // Update is called once per frame
@@ -92,6 +93,12 @@ namespace Assets.Scripts.Player
         void OnJumpEnd()
         {
             _animator.SetBool("IsJumping", false);
+        }
+
+        void OnFallBegin()
+        {
+            _animator.SetTrigger("FallTrigger");
+            _animator.SetBool("IsJumping", true);
         }
     }
 }
