@@ -8,6 +8,7 @@ public class MusicHandler : MonoBehaviour
     [Header("Music Settings")]
     [SerializeField] private AudioClip _pastMusic;
     [SerializeField] private AudioClip _futureMusic;
+    [SerializeField] private bool _playOnStart = true;
     [SerializeField] private bool _changesOnWorldSwap = true;
     [Header("Fade Settings")]
     [SerializeField] private bool _fadeInOnStart = true;
@@ -15,7 +16,7 @@ public class MusicHandler : MonoBehaviour
     [SerializeField] private float _volumeFadeInDuration = 0.5f;
     [SerializeField] private SceneSwitchHandler _sceneSwitchHandler;
     [SerializeField] private bool _fadeOutWithSceneTransition = true;
-    private float _volumeFadeOutDuration = 0.5f;
+    [SerializeField] private float _volumeFadeOutDuration = 0.5f;
 
     private AudioSource _audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,7 +64,13 @@ public class MusicHandler : MonoBehaviour
         _audioSource.Play();
     }
 
-    void FadeOutMusic()
+    public void PlayAndFadeInFromStart()
+    {
+        StartCoroutine(GraduallyChangeVolume(_fadeInTargetVolume, _volumeFadeInDuration));
+        OnWorldSwap();
+    }
+
+    public void FadeOutMusic()
     {
         StartCoroutine(GraduallyChangeVolume(0.0f, _volumeFadeOutDuration));
     }
