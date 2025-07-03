@@ -34,6 +34,8 @@ namespace Assets.Scripts.Player
         public UnityEvent OnJumpBegin = new UnityEvent();
         public UnityEvent OnJumpEnd = new UnityEvent();
 
+        public UnityEvent OnDoubleJumpBegin = new UnityEvent();
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -115,6 +117,7 @@ namespace Assets.Scripts.Player
                     _canDoubleJump = false;
                     _isHoldingJump = true;
                     _jumpTimeCounter = _maxJumpTime;
+                    OnDoubleJumpBegin?.Invoke();
                 }
             }
             else if (context.canceled)
