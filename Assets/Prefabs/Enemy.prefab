@@ -244,6 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyWeaponComponent: {fileID: 1696482535745580033}
+  _healthPickupPrefab: {fileID: 5738825750454389788, guid: d80c5cef830c56f449a8d0ecb4658fb8, type: 3}
+  _healthPickupDropChance: 0.2
   OnMovementBegin:
     m_PersistentCalls:
       m_Calls: []
@@ -263,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3644575227725893885}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0c0ad06a5ba760408048d401b374ef3, type: 3}
   m_Name: 
@@ -279,7 +281,19 @@ MonoBehaviour:
       m_Calls: []
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1921933271596673465}
+        m_TargetAssemblyTypeName: Assets.Scripts.Enemies.EnemyAIComponent, Assembly-CSharp
+        m_MethodName: DropHealthPickup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHeal:
     m_PersistentCalls:
       m_Calls: []

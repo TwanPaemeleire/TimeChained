@@ -7,6 +7,8 @@ namespace Assets.Scripts.Enemies
     public class EnemyAIComponent : MonoBehaviour
     {
         [SerializeField] private ShootComponent _enemyWeaponComponent;
+        [SerializeField] private GameObject _healthPickupPrefab;
+        [SerializeField] private float _healthPickupDropChance = 0.2f;
 
         public UnityEvent OnMovementBegin = new UnityEvent();
         public UnityEvent OnMovementEnd = new UnityEvent();
@@ -100,6 +102,16 @@ namespace Assets.Scripts.Enemies
             }
 
             return false;
+        }
+
+        public void DropHealthPickup()
+        {
+            var chance = Random.Range(0.0f, 1.0f);
+
+            if (chance <= _healthPickupDropChance)
+            {
+                Instantiate(_healthPickupPrefab, gameObject.transform.position, Quaternion.identity);
+            }
         }
     }
 }
