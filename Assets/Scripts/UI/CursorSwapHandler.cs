@@ -10,7 +10,7 @@ public class CursorSwapHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Vector2 cursorSize = _pastCursor.Size();
+        Vector2 cursorSize = new Vector2(_pastCursor.width, _pastCursor.height);
         _cursorHandle = new Vector2(cursorSize.x / 2.0f, cursorSize.y / 2.0f);
         OnWorldSwap();
         WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);

@@ -105,7 +105,7 @@ MonoBehaviour:
   _maxLifetime: 3
   _cyberpunkBulletSpritePlayer: {fileID: 0}
   _medievalBulletSpritePlayer: {fileID: 0}
-  _cyberpunkBulletSpriteEnemy: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
+  _cyberpunkBulletSpriteEnemy: {fileID: 1591003290502686807, guid: 05f964a6379f2634f81084cff99b70df, type: 3}
   _medievalBulletSpriteEnemy: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
   _laserImpactPlayerObject: {fileID: 0}
   _laserImpactEnemyObject: {fileID: 4625653114419546587, guid: de4954741e192244cba89319770aeb70, type: 3}
