@@ -10,6 +10,7 @@ namespace Assets.Scripts.Player
     {
         [SerializeField] private float _speed = 5f;
         [SerializeField] private float _jumpStrength = 5f;
+        [SerializeField] private float _maxJumpTime = 0.6f;
 
         private SpriteRenderer _spriteRenderer;
         private Rigidbody2D _rigidbody;
@@ -18,6 +19,8 @@ namespace Assets.Scripts.Player
         private bool _isGrounded;
         private bool _canDoubleJump;
         private bool _isJumping;
+        private bool _isHoldingJump;
+        private float _jumpTimeCounter;
 
         private ShootComponent _shootComponent;
         private PlayerWeaponRotateComponent _weaponRotateComponent;
@@ -50,6 +53,12 @@ namespace Assets.Scripts.Player
             {
                 _isJumping = false;
                 OnJumpEnd?.Invoke();
+            }
+
+            if (_isHoldingJump && _jumpTimeCounter > 0)
+            {
+                _rigidbody.AddForce(transform.up * _jumpStrength * Time.fixedDeltaTime, ForceMode2D.Impulse);
+                _jumpTimeCounter -= Time.fixedDeltaTime;
             }
         }
 
@@ -92,17 +101,25 @@ namespace Assets.Scripts.Player
             {
                 if (_isGrounded)
                 {
-                    _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
+                    _rigidbody.AddForce(transform.up * _jumpStrength * 0.4f, ForceMode2D.Impulse);
                     _canDoubleJump = true;
                     _isJumping = true;
+                    _isHoldingJump = true;
+                    _jumpTimeCounter = _maxJumpTime;
                     OnJumpBegin?.Invoke();
                 }
                 else if (_canDoubleJump)
                 {
                     _rigidbody.linearVelocityY = 0; // otherwise jump immediately after first jump would go super high
-                    _rigidbody.AddForce(transform.up * _jumpStrength, ForceMode2D.Impulse);
+                    _rigidbody.AddForce(transform.up * _jumpStrength * 0.4f, ForceMode2D.Impulse);
                     _canDoubleJump = false;
+                    _isHoldingJump = true;
+                    _jumpTimeCounter = _maxJumpTime;
                 }
+            }
+            else if (context.canceled)
+            {
+                _isHoldingJump = false;
             }
         }
 

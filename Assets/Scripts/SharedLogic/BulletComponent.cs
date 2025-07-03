@@ -57,7 +57,7 @@ namespace Assets.Scripts.SharedLogic
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || collision.CompareTag("OneWayPlatform") || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
+            if (collision.CompareTag(_shooterTag) || collision.CompareTag(transform.tag) || collision.CompareTag("PatrolPoint") || collision.CompareTag("OneWayPlatform") || (collision.CompareTag("Enemy") && _shotFromTrap)) return; //hits own shooter or other bullet, trap shooters cannot hit enemies
 
             if (collision.CompareTag("Player") || collision.CompareTag("Enemy") || collision.CompareTag("Boss")) 
             {
