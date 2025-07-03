@@ -79,6 +79,7 @@ namespace Assets.Scripts.Boss
             }
             _pixelPerfectCamera.assetsPPU = _targetAssetsPPU;
 
+            playerAnimHandler.IsEnteringBossArena = false;
             playerAnimator.SetBool("IsMoving", false);
             playerInput.ActivateInput();
             StartBossFight();
