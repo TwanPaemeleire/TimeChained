@@ -51,6 +51,9 @@ MonoBehaviour:
   _futureSprite: {fileID: 2075777410942371727, guid: 4d64e8fac4e815c49b7aa35709e3c95f, type: 3}
   _pastSprite: {fileID: -8625021635316834534, guid: c5d7e06341ba67c4ea03e8ab2acf5712, type: 3}
   _healingAmount: 3
+  _spawnPushForce: 3
+  _isRandomDirection: 1
+  _spawnDirection: {x: 0, y: 1}
 --- !u!212 &3949574398803972022
 SpriteRenderer:
   m_ObjectHideFlags: 0

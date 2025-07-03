@@ -17,16 +17,19 @@ namespace Assets.Scripts.SharedLogic
         private bool _cannotDie = false;
         public bool CannotDie { set { _cannotDie = value; }}
         private float _currentHealth;
+        private float _halfHealth;
         private float _invulnerableTimer;
         private Color _originalColor;
 
         public UnityEvent OnHit = new UnityEvent();
+        public UnityEvent OnHalfHealthReached = new UnityEvent();
         public UnityEvent OnDeath = new UnityEvent();
         public UnityEvent OnHeal = new UnityEvent();
 
         private void Awake()
         {
             _currentHealth = _maxHealth;
+            _halfHealth = _maxHealth / 2.0f;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _originalColor = _spriteRenderer.color;
         }
@@ -41,6 +44,7 @@ namespace Assets.Scripts.SharedLogic
     
         public void GetHit(float damage = 1.0f)
         {
+            float previousHealth = _currentHealth;
             if (_invulnerableTimer > 0.0f)
             {
                 return;
@@ -49,6 +53,11 @@ namespace Assets.Scripts.SharedLogic
             _currentHealth -= damage;
             FlashSprite(_damageFlashColor);
             OnHit?.Invoke();
+
+            if (previousHealth > _halfHealth && _currentHealth <= _halfHealth)
+            {
+                OnHalfHealthReached?.Invoke();
+            }
 
             _invulnerableTimer = 0.3f;
 

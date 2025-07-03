@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.SharedLogic;
 using Assets.Scripts.Boss;
 using Assets.Scripts.World;
+using Assets.Scripts.Miscellaneous;
 
 namespace Assets.Scripts.Boss
 {
@@ -12,6 +13,7 @@ namespace Assets.Scripts.Boss
         [SerializeField] private float _firstAttackDelay = 1.0f;
         [SerializeField] private AnimatorOverrideController _pastControllerOverride;
         [SerializeField] private AnimatorOverrideController _futureControllerOverride;
+        [SerializeField] private GameObject _healthPickupPrefab;
         private Animator _animator;
         private BossFightBaseAttack _currentAttack = null;
         private int _lastAttackIndex = -1;
@@ -19,7 +21,9 @@ namespace Assets.Scripts.Boss
 
         private void Start()
         {
-            GetComponent<HealthComponent>().OnDeath.AddListener(OnDeath);
+            HealthComponent healthComp = GetComponent<HealthComponent>();
+            healthComp.OnDeath.AddListener(OnDeath);
+            healthComp.OnHalfHealthReached.AddListener(OnHalfHealthReached);
             _animator = GetComponent<Animator>();
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
         }
@@ -54,6 +58,12 @@ namespace Assets.Scripts.Boss
         void OnCurrentAttackFinished()
         {
             Invoke(nameof(DoNewAttack), _currentAttack.DelayAfterAttack);
+        }
+
+        void OnHalfHealthReached()
+        {
+            _healthPickupPrefab.transform.position = transform.position;
+            _healthPickupPrefab.SetActive(true);
         }
 
         void OnDeath()
