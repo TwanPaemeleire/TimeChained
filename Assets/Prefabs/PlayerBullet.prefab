@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifetime: 6
-  _cyberpunkBulletSprite: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
-  _medievalBulletSprite: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
+  _cyberpunkBulletSpritePlayer: {fileID: 492242736990004239, guid: e9cea921b1abe7e449e782c8330fc388, type: 3}
+  _medievalBulletSpritePlayer: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
+  _cyberpunkBulletSpriteEnemy: {fileID: 2207558096434013713, guid: 02ce061f2b0774346b360601b8251be8, type: 3}
+  _medievalBulletSpriteEnemy: {fileID: 371146567332855329, guid: 171e4c9ffbc0f174aa43c17a402c55bf, type: 3}
 --- !u!61 &-6204344679361697265
 BoxCollider2D:
   m_ObjectHideFlags: 0

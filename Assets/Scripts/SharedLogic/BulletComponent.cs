@@ -6,8 +6,10 @@ namespace Assets.Scripts.SharedLogic
     public class BulletComponent : MonoBehaviour
     {
         [SerializeField] private float _maxLifetime = 3.0f;
-        [SerializeField] private Sprite _cyberpunkBulletSprite;
-        [SerializeField] private Sprite _medievalBulletSprite;
+        [SerializeField] private Sprite _cyberpunkBulletSpritePlayer;
+        [SerializeField] private Sprite _medievalBulletSpritePlayer;
+        [SerializeField] private Sprite _cyberpunkBulletSpriteEnemy;
+        [SerializeField] private Sprite _medievalBulletSpriteEnemy;
         private BulletType _bulletType;
         public BulletType BulletType { set { _bulletType = value; } }
         private SpriteRenderer _bulletRenderer;
@@ -16,6 +18,7 @@ namespace Assets.Scripts.SharedLogic
         protected float _startSpeed = 6f;
         private string _shooterTag;
         private bool _shotFromTrap = false;
+        private bool _shotFromPlayer = false;
         private bool _isBeingReturnedToPool = false;
 
         private void Start()
@@ -51,8 +54,11 @@ namespace Assets.Scripts.SharedLogic
         public void SetShooterTag(string tag)
         {
             _shooterTag = tag;
+            _shotFromTrap = false; //NEED TO DO THIS, memory pool doesnt reset bool, so need to reset every time new tag gets set
+            _shotFromPlayer = false;
             if (tag == "Trap") _shotFromTrap = true; //setting it here so not continuously checking in OnTriggerEnter
-            else _shotFromTrap = false; //NEED TO DO THIS, memory pool doesnt reset bool, so need to reset every time new tag gets set
+            else if(tag == "Player") _shotFromPlayer = true;
+            OnWorldSwap();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -88,11 +94,27 @@ namespace Assets.Scripts.SharedLogic
         {
             if(WorldSwapHandler.Instance.IsInCyberpunkWorld)
             {
-                _bulletRenderer.sprite = _cyberpunkBulletSprite;
+                if(_shotFromPlayer)
+                {
+                    _bulletRenderer.sprite = _cyberpunkBulletSpritePlayer;
+                }
+                else
+                {
+                    _bulletRenderer.sprite = _cyberpunkBulletSpriteEnemy;
+                }
+                
             }
             else
             {
-                _bulletRenderer.sprite = _medievalBulletSprite;
+                if (_shotFromPlayer)
+                {
+                    _bulletRenderer.sprite = _medievalBulletSpritePlayer;
+                }
+                else
+                {
+                    _bulletRenderer.sprite = _medievalBulletSpriteEnemy;
+                }
+
             }
         }
     }
