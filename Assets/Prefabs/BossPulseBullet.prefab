@@ -103,8 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifetime: 3
-  _cyberpunkBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
-  _medievalBulletSprite: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
+  _cyberpunkBulletSpritePlayer: {fileID: 0}
+  _medievalBulletSpritePlayer: {fileID: 0}
+  _cyberpunkBulletSpriteEnemy: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
+  _medievalBulletSpriteEnemy: {fileID: -4126593415302812830, guid: e25b0d31ed4027e4693e298c113439b3, type: 3}
+  _laserImpactPlayerObject: {fileID: 0}
+  _laserImpactEnemyObject: {fileID: 4625653114419546587, guid: de4954741e192244cba89319770aeb70, type: 3}
+  _ArrowImpactObject: {fileID: 4625653114419546587, guid: de4954741e192244cba89319770aeb70, type: 3}
   _pulseDelay: 0.8
   _pulseStrenght: 6
   _dragStrenght: 10

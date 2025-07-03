@@ -107,6 +107,9 @@ MonoBehaviour:
   _medievalBulletSpritePlayer: {fileID: 1881756205816718556, guid: 8d06b98b3129ae04eb22e8d62f69da52, type: 3}
   _cyberpunkBulletSpriteEnemy: {fileID: 2207558096434013713, guid: 02ce061f2b0774346b360601b8251be8, type: 3}
   _medievalBulletSpriteEnemy: {fileID: 371146567332855329, guid: 171e4c9ffbc0f174aa43c17a402c55bf, type: 3}
+  _laserImpactPlayerObject: {fileID: 4625653114419546587, guid: 19e0f1a6a9af57c4ba9fc621dd49bc81, type: 3}
+  _laserImpactEnemyObject: {fileID: 4625653114419546587, guid: f8a48be143abe2d44be5becdf94dfa94, type: 3}
+  _ArrowImpactObject: {fileID: 4625653114419546587, guid: de4954741e192244cba89319770aeb70, type: 3}
 --- !u!61 &-6204344679361697265
 BoxCollider2D:
   m_ObjectHideFlags: 0

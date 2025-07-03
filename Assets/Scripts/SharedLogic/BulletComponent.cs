@@ -10,6 +10,9 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private Sprite _medievalBulletSpritePlayer;
         [SerializeField] private Sprite _cyberpunkBulletSpriteEnemy;
         [SerializeField] private Sprite _medievalBulletSpriteEnemy;
+        [SerializeField] private GameObject _laserImpactPlayerObject; 
+        [SerializeField] private GameObject _laserImpactEnemyObject;
+        [SerializeField] private GameObject _ArrowImpactObject;
         private BulletType _bulletType;
         public BulletType BulletType { set { _bulletType = value; } }
         private SpriteRenderer _bulletRenderer;
@@ -86,6 +89,26 @@ namespace Assets.Scripts.SharedLogic
 
             CancelInvoke(nameof(DestroyBullet));
             _speed = _startSpeed;
+
+            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            {
+                if (_shotFromPlayer)
+                {
+                    Instantiate(_laserImpactPlayerObject, transform.position, transform.rotation);
+                }
+
+                else
+                {
+                    Instantiate(_laserImpactEnemyObject, transform.position, transform.rotation);
+                }
+            }
+
+            else
+            {
+                Instantiate(_ArrowImpactObject, transform.position, transform.rotation);
+            }
+            
+
             WorldSwapHandler.Instance.OnWorldSwap.RemoveListener(OnWorldSwap);
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
         }
