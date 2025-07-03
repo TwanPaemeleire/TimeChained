@@ -16,8 +16,8 @@ namespace Assets.Scripts.Player
         void Start()
         {
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
-            WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
-            WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
+            //WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
+            WorldSwapHandler.Instance.OnWorldFlicker.AddListener(OnWorldFlicker);
             _animator = GetComponent<Animator>();
             _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
 
@@ -47,23 +47,9 @@ namespace Assets.Scripts.Player
             }
         }
 
-        void OnNewWorldFlicker()
+        void OnWorldFlicker()
         {
-            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
-            {
-                _animator.runtimeAnimatorController = _medievalControllerOverride;
-            }
-            else
-            {
-                _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
-            }
-
-            Debug.Log("Changed after flicker");
-        }
-
-        void OnCurrentWorldBackFlicker()
-        {
-            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            if (WorldSwapHandler.Instance.IsFlickeringInCyberpunkWorld)
             {
                 _animator.runtimeAnimatorController = _cyberpunkControllerOverride;
             }

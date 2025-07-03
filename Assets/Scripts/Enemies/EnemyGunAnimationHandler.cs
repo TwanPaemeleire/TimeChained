@@ -15,8 +15,8 @@ namespace Assets.Scripts.Enemies
         private void Start()
         {
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
-            WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
-            WorldSwapHandler.Instance.OnCurrentWorldBackFlicker.AddListener(OnCurrentWorldBackFlicker);
+            //WorldSwapHandler.Instance.OnNewWorldFlicker.AddListener(OnNewWorldFlicker);
+            WorldSwapHandler.Instance.OnWorldFlicker.AddListener(OnWorldFlicker);
             _weaponAnimator = GetComponent<Animator>();
             _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
 
@@ -37,21 +37,9 @@ namespace Assets.Scripts.Enemies
             }
         }
 
-        private void OnNewWorldFlicker()
+        private void OnWorldFlicker()
         {
-            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
-            {
-                _weaponAnimator.runtimeAnimatorController = _medievalWeaponControllerOverride;
-            }
-            else
-            {
-                _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
-            }
-        }
-
-        private void OnCurrentWorldBackFlicker()
-        {
-            if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+            if (WorldSwapHandler.Instance.IsFlickeringInCyberpunkWorld)
             {
                 _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
             }

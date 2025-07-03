@@ -40,6 +40,7 @@ namespace Assets.Scripts.SharedLogic
         {
             _isBeingReturnedToPool = false;
             WorldSwapHandler.Instance.OnWorldSwap.AddListener(OnWorldSwap);
+            WorldSwapHandler.Instance.OnWorldFlicker.AddListener(OnWorldFlicker);
             Invoke(nameof(DestroyBullet), _maxLifetime);
         }
 
@@ -111,6 +112,34 @@ namespace Assets.Scripts.SharedLogic
 
             WorldSwapHandler.Instance.OnWorldSwap.RemoveListener(OnWorldSwap);
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
+        }
+
+        private void OnWorldFlicker()
+        {
+            if (WorldSwapHandler.Instance.IsFlickeringInCyberpunkWorld)
+            {
+                if (_shotFromPlayer)
+                {
+                    _bulletRenderer.sprite = _cyberpunkBulletSpritePlayer;
+                }
+                else
+                {
+                    _bulletRenderer.sprite = _cyberpunkBulletSpriteEnemy;
+                }
+
+            }
+            else
+            {
+                if (_shotFromPlayer)
+                {
+                    _bulletRenderer.sprite = _medievalBulletSpritePlayer;
+                }
+                else
+                {
+                    _bulletRenderer.sprite = _medievalBulletSpriteEnemy;
+                }
+
+            }
         }
 
         private void OnWorldSwap()
