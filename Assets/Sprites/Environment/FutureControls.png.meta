@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: edbd500310a616544b108ca6583bcf17
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4131539737136365734
+    second: FutureControls_0
+  - first:
+      213: 8167873844611543770
+    second: FutureControls_1
+  - first:
+      213: -988954520137104420
+    second: FutureControls_2
+  - first:
+      213: 6946655025844407004
+    second: FutureControls_3
+  - first:
+      213: -9063452443053362312
+    second: FutureControls_4
+  - first:
+      213: 6627990939347943624
+    second: FutureControls_5
+  - first:
+      213: 6683141719221636323
+    second: FutureControls_6
+  - first:
+      213: -6789824763057755953
+    second: FutureControls_7
+  - first:
+      213: 6023732453087575116
+    second: FutureControls_8
+  - first:
+      213: -7454650756048619514
+    second: FutureControls_9
+  - first:
+      213: -6419540155290391710
+    second: FutureControls_10
+  - first:
+      213: -5909764082999404268
+    second: FutureControls_11
+  - first:
+      213: -244297565939122395
+    second: FutureControls_12
+  - first:
+      213: -5513985669314037384
+    second: FutureControls_13
+  - first:
+      213: -4354109250034094415
+    second: FutureControls_14
+  - first:
+      213: 2127180213228984437
+    second: FutureControls_15
+  - first:
+      213: -8295567851495785837
+    second: FutureControls_16
+  - first:
+      213: -781216371121831460
+    second: FutureControls_17
+  - first:
+      213: -9008214272450323559
+    second: FutureControls_18
+  - first:
+      213: 8096052258565653768
+    second: FutureControls_19
+  - first:
+      213: 898412573004886707
+    second: FutureControls_20
+  - first:
+      213: 5995264632809624830
+    second: FutureControls_21
+  - first:
+      213: -5735477338461123740
+    second: FutureControls_22
+  - first:
+      213: -1245819096711071950
+    second: FutureControls_23
+  - first:
+      213: 5760337545768487203
+    second: FutureControls_24
+  - first:
+      213: -4971429783653377640
+    second: FutureControls_25
+  - first:
+      213: -7980892916272808537
+    second: FutureControls_26
+  - first:
+      213: 5293273889118579499
+    second: FutureControls_27
+  - first:
+      213: 3142276648876656792
+    second: FutureControls_28
+  - first:
+      213: 5402634501232306464
+    second: FutureControls_29
+  - first:
+      213: 2090999243936354032
+    second: FutureControls_30
+  - first:
+      213: -2287868063702672469
+    second: FutureControls_31
+  - first:
+      213: 6121655553296432666
+    second: FutureControls_32
+  - first:
+      213: 3759783945661332335
+    second: FutureControls_33
+  - first:
+      213: -8811693874834564629
+    second: FutureControls_34
+  - first:
+      213: -2935013313065997039
+    second: FutureControls_35
+  - first:
+      213: 7068191131257477428
+    second: FutureControls_36
+  - first:
+      213: -2453529699093349117
+    second: FutureControls_37
+  - first:
+      213: -3860010541398123753
+    second: FutureControls_38
+  - first:
+      213: -4186612308657433139
+    second: FutureControls_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FutureControls_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 106
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f7398bf72d9a6c0800000000000000
+      internalID: -4131539737136365734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 106
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad276468cfd1a5170800000000000000
+      internalID: 8167873844611543770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 92
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd306388a178642f0800000000000000
+      internalID: -988954520137104420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_3
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 106
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda43a8e0f9776060800000000000000
+      internalID: 6946655025844407004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 106
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8737825f506283280800000000000000
+      internalID: -9063452443053362312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_5
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 92
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c0875a84aa5bfb50800000000000000
+      internalID: 6627990939347943624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_6
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 106
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec8ccd1cf94fbc50800000000000000
+      internalID: 6683141719221636323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_7
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 106
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8aace1a52b5c1a0800000000000000
+      internalID: -6789824763057755953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 108
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4cf64040c8989350800000000000000
+      internalID: 6023732453087575116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 115
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608ff1142a2cb8890800000000000000
+      internalID: -7454650756048619514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_10
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 106
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b6f8ead3639e6a0800000000000000
+      internalID: -6419540155290391710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_11
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 108
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4195576b0ec4cfda0800000000000000
+      internalID: -5909764082999404268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 92
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fb4ba78a41c9cf0800000000000000
+      internalID: -244297565939122395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_13
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 92
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87931f38f336a73b0800000000000000
+      internalID: -5513985669314037384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_14
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 93
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bea976c4b81393c0800000000000000
+      internalID: -4354109250034094415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_15
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 97
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578d0c63223458d10800000000000000
+      internalID: 2127180213228984437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_16
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 97
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a7179adf830ec80800000000000000
+      internalID: -8295567851495785837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 63
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1409a79df8825f0800000000000000
+      internalID: -781216371121831460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_18
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 63
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b9ef5c8d46cf280800000000000000
+      internalID: -9008214272450323559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 64
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8050eca62a4fa5070800000000000000
+      internalID: 8096052258565653768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 65
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b273b3a97dc77c00800000000000000
+      internalID: 898412573004886707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_21
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 53
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef494155b65733350800000000000000
+      internalID: 5995264632809624830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 46
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bc8bf9fbd7760b0800000000000000
+      internalID: -5735477338461123740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_23
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2377326d126f5bee0800000000000000
+      internalID: -1245819096711071950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_24
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32940e17a74d0ff40800000000000000
+      internalID: 5760337545768487203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_25
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 45
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8991b8793fee10bb0800000000000000
+      internalID: -4971429783653377640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_26
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 53
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7adb02f5d2c2e3190800000000000000
+      internalID: -7980892916272808537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_27
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 53
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b63c3ae8c757940800000000000000
+      internalID: 5293273889118579499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_28
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 53
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8984c42b6fb9b9b20800000000000000
+      internalID: 3142276648876656792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_29
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 32
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029a83954730afa40800000000000000
+      internalID: 5402634501232306464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_30
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 32
+        width: 42
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fecf68dbb8b40d10800000000000000
+      internalID: 2090999243936354032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_31
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 36
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab9a022e1cdf30e0800000000000000
+      internalID: -2287868063702672469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_32
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 40
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ef783ba4d74f450800000000000000
+      internalID: 6121655553296432666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_33
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 32
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b3c51149f6d2430800000000000000
+      internalID: 3759783945661332335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 31
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be910017b1396b580800000000000000
+      internalID: -8811693874834564629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_35
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 3
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11da8af21fcb447d0800000000000000
+      internalID: -2935013313065997039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_36
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 5
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4391b2f8262471260800000000000000
+      internalID: 7068191131257477428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d7bafecbf43fdd0800000000000000
+      internalID: -2453529699093349117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_38
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 5
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b93b22ddc7e6ac0800000000000000
+      internalID: -3860010541398123753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FutureControls_39
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 5
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc51232794a26e5c0800000000000000
+      internalID: -4186612308657433139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FutureControls_0: -4131539737136365734
+      FutureControls_1: 8167873844611543770
+      FutureControls_10: -6419540155290391710
+      FutureControls_11: -5909764082999404268
+      FutureControls_12: -244297565939122395
+      FutureControls_13: -5513985669314037384
+      FutureControls_14: -4354109250034094415
+      FutureControls_15: 2127180213228984437
+      FutureControls_16: -8295567851495785837
+      FutureControls_17: -781216371121831460
+      FutureControls_18: -9008214272450323559
+      FutureControls_19: 8096052258565653768
+      FutureControls_2: -988954520137104420
+      FutureControls_20: 898412573004886707
+      FutureControls_21: 5995264632809624830
+      FutureControls_22: -5735477338461123740
+      FutureControls_23: -1245819096711071950
+      FutureControls_24: 5760337545768487203
+      FutureControls_25: -4971429783653377640
+      FutureControls_26: -7980892916272808537
+      FutureControls_27: 5293273889118579499
+      FutureControls_28: 3142276648876656792
+      FutureControls_29: 5402634501232306464
+      FutureControls_3: 6946655025844407004
+      FutureControls_30: 2090999243936354032
+      FutureControls_31: -2287868063702672469
+      FutureControls_32: 6121655553296432666
+      FutureControls_33: 3759783945661332335
+      FutureControls_34: -8811693874834564629
+      FutureControls_35: -2935013313065997039
+      FutureControls_36: 7068191131257477428
+      FutureControls_37: -2453529699093349117
+      FutureControls_38: -3860010541398123753
+      FutureControls_39: -4186612308657433139
+      FutureControls_4: -9063452443053362312
+      FutureControls_5: 6627990939347943624
+      FutureControls_6: 6683141719221636323
+      FutureControls_7: -6789824763057755953
+      FutureControls_8: 6023732453087575116
+      FutureControls_9: -7454650756048619514
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
