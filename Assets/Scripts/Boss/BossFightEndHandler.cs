@@ -1,6 +1,7 @@
 using Assets.Scripts.SharedLogic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
 public class BossFightEndHandler : MonoBehaviour
@@ -16,8 +17,12 @@ public class BossFightEndHandler : MonoBehaviour
     private GameObject _explosionContainer;
 
     private SpriteRenderer _spriteRenderer;
-
     private ObjectPool<GameObject> _explosionPool;
+    private bool _shouldStopCreatingExplosions = false;
+
+    public UnityEvent OnShouldDoLevelTransition = new UnityEvent(); 
+
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,13 +36,23 @@ public class BossFightEndHandler : MonoBehaviour
 
     void OnBossDeath()
     {
+        GameObject[] playerObjs = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var player in playerObjs)
+        {
+            if (player.TryGetComponent<HealthComponent>(out var healthComp))
+            {
+                healthComp.CannotDie = true;
+                break;
+            }
+        }
+
         StartCoroutine(ExplosionCycle());
+        StartCoroutine(TransitionAfterDelay());
     }
 
     IEnumerator ExplosionCycle()
     {
-        float startTime = Time.time;
-        while (Time.time - startTime < _explosionCycleDuration)
+        while (!_shouldStopCreatingExplosions)
         {
             float randomX = Random.Range(-_explosionSpawnAreaHalfWidth, _explosionSpawnAreaHalfWidth);
             float randomY = Random.Range(-_explosionSpawnAreaHalfHeight, _explosionSpawnAreaHalfHeight);
@@ -48,6 +63,17 @@ public class BossFightEndHandler : MonoBehaviour
             explosion.transform.position = explosionPosition;
             yield return new WaitForSeconds(_explosionDelay);
         }
+    }
+
+    IEnumerator TransitionAfterDelay()
+    {
+        yield return new WaitForSeconds(_explosionCycleDuration);
+        OnShouldDoLevelTransition?.Invoke();
+    }
+
+    public void OnShouldStopSpawningExplosions()
+    {
+        _shouldStopCreatingExplosions = true;
     }
 
     private void OnDestroyExplosion(GameObject explosion)

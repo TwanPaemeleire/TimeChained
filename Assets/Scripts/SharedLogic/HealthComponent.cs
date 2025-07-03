@@ -14,6 +14,8 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private bool _destroyedOnDeath = true;
 
         private bool _hasDied = false;
+        private bool _cannotDie = false;
+        public bool CannotDie { set { _cannotDie = value; }}
         private float _currentHealth;
         private float _invulnerableTimer;
         private Color _originalColor;
@@ -58,7 +60,7 @@ namespace Assets.Scripts.SharedLogic
 
         public void Kill()
         {
-            if (_hasDied) return;
+            if (_hasDied || _cannotDie) return;
             _currentHealth = 0.0f;
             _hasDied = true;
             OnDeath?.Invoke();

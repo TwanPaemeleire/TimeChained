@@ -533,6 +533,21 @@ MonoBehaviour:
   _explosionCycleDuration: 2
   _explosionPrefab: {fileID: 6728890983328537470, guid: 8dc1a4d07315e5442a36d73292d7a943, type: 3}
   _explosionPositionBorderOffset: 1.5
+  OnShouldDoLevelTransition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 869849381}
+        m_TargetAssemblyTypeName: Assets.Scripts.World.SceneSwitchHandler, Assembly-CSharp
+        m_MethodName: RequestSceneTransition
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &122050982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22243,6 +22258,38 @@ PrefabInstance:
     - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
       propertyPath: _hasBeginAnimation
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: _transitionDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 80807538}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnShouldStopSpawningExplosions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BossFightEndHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302629914173914019, guid: 88ebfb7c473da044ca5d32734656b3dc, type: 3}
+      propertyPath: OnSceneSwitchNearlyDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

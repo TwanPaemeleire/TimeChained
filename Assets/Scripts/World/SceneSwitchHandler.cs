@@ -9,10 +9,12 @@ namespace Assets.Scripts.World
     {
         [SerializeField] private Animator _transitionAnimator;
         [SerializeField] private float _transitionDuration = 1.0f;
+        [SerializeField] private float _nearlyDoneThreshHold = 0.05f;
         public float TransitionDuration{ get { return _transitionDuration; } }
         [SerializeField] private bool _hasBeginAnimation = true;
 
         public UnityEvent OnSceneSwitchBegin = new UnityEvent();
+        public UnityEvent OnSceneSwitchNearlyDone = new UnityEvent();
 
         private void Awake()
         {
@@ -41,7 +43,9 @@ namespace Assets.Scripts.World
             OnSceneSwitchBegin?.Invoke();
             _transitionAnimator.SetTrigger("Begin");
 
-            yield return new WaitForSeconds(_transitionDuration);
+            yield return new WaitForSeconds(_transitionDuration - _nearlyDoneThreshHold);
+            OnSceneSwitchNearlyDone?.Invoke();
+            yield return new WaitForSeconds(_nearlyDoneThreshHold);
 
             SceneManager.LoadSceneAsync(sceneId);
         }
