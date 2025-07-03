@@ -15,7 +15,6 @@ namespace Assets.Scripts.Traps
         {
             if(collision.gameObject.CompareTag("Player") && collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
             {
-                Debug.Log("ENTERED");
                 _entitiesInTrap.Add(healthComponent, StartCoroutine(TrapDamageCoroutine(healthComponent)));
             }
         }
@@ -24,7 +23,6 @@ namespace Assets.Scripts.Traps
         {
             if (collision.gameObject.CompareTag("Player") && collision.gameObject.TryGetComponent<HealthComponent>(out HealthComponent healthComponent))
             {
-                Debug.Log("EXITED");
                 StopCoroutine(_entitiesInTrap[healthComponent]);
                 _entitiesInTrap.Remove(healthComponent);
             }
@@ -33,12 +31,10 @@ namespace Assets.Scripts.Traps
         IEnumerator TrapDamageCoroutine(HealthComponent healthComp)
         {
             healthComp.GetHit(_damage);
-            Debug.Log("DMG");
             while (true)
             {
                 yield return new WaitForSeconds(_delayBetweenHits);
                 healthComp.GetHit(_damage);
-                Debug.Log("DMG");
             }
         }
     }
