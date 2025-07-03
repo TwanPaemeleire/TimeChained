@@ -10,6 +10,7 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private float _flashDuration = 0.1f;
         [SerializeField] private Color _flashColor = Color.red;
+        [SerializeField] private bool _destroyedOnDeath = true;
 
         private float _currentHealth;
         private Color _originalColor;
@@ -41,6 +42,11 @@ namespace Assets.Scripts.SharedLogic
         {
             _currentHealth = 0.0f;
             OnDeath?.Invoke();
+
+            if (_destroyedOnDeath)
+            {
+                Destroy(gameObject);
+            }
         }
 
         public void Heal(float healAmount)
