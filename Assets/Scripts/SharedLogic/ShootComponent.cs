@@ -1,3 +1,4 @@
+using Assets.Scripts.World;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,7 +15,8 @@ namespace Assets.Scripts.SharedLogic
         [SerializeField] private BulletType _bulletType;
         private float _accumulatedTime;
 
-        public UnityEvent OnShoot = new UnityEvent();
+        public UnityEvent OnShootFuture = new UnityEvent();
+        public UnityEvent OnShootPast = new UnityEvent();
 
         void Update()
         {
@@ -43,7 +45,15 @@ namespace Assets.Scripts.SharedLogic
                 BulletComponent bulletComp = bullet.GetComponent<BulletComponent>();
                 bulletComp.SetShooterTag(transform.tag);
                 bulletComp.BulletType = _bulletType;
-                OnShoot?.Invoke();
+
+                if (WorldSwapHandler.Instance.IsInCyberpunkWorld)
+                {
+                    OnShootFuture?.Invoke();
+                }
+                else
+                {
+                    OnShootPast?.Invoke();
+                }
             }
         }
 

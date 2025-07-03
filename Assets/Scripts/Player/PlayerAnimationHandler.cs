@@ -1,4 +1,5 @@
 using Assets.Scripts.World;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -8,6 +9,8 @@ namespace Assets.Scripts.Player
         [SerializeField] private AnimatorOverrideController _medievalControllerOverride;
         [SerializeField] private AnimatorOverrideController _cyberpunkControllerOverride;
         private Animator _animator;
+        private bool _isEnteringBossAerena = false;
+        public bool IsEnteringBossArena { set { _isEnteringBossAerena = value; } }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -78,6 +81,7 @@ namespace Assets.Scripts.Player
 
         void OnMovementEnd()
         {
+            if (_isEnteringBossAerena) return;
             _animator.SetBool("IsMoving", false);
         }
 

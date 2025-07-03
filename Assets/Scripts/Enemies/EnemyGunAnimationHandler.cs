@@ -21,7 +21,8 @@ namespace Assets.Scripts.Enemies
             _weaponAnimator.runtimeAnimatorController = _cyberpunkWeaponControllerOverride;
 
             ShootComponent weaponComp = GetComponent<ShootComponent>();
-            weaponComp.OnShoot.AddListener(OnShoot);
+            weaponComp.OnShootFuture.AddListener(OnShoot);
+            weaponComp.OnShootPast.AddListener(OnShoot);
         }
 
         private void OnWorldSwap()

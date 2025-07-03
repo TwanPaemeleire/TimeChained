@@ -194,6 +194,7 @@ Transform:
   - {fileID: 1299336352}
   - {fileID: 2125695912}
   - {fileID: 1339574729}
+  - {fileID: 624101325}
   - {fileID: 750042040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -210,9 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attacks:
-  - {fileID: 1299336353}
-  - {fileID: 2125695913}
-  - {fileID: 1339574730}
+  - {fileID: 624101326}
   _firstAttackDelay: 1
   _pastControllerOverride: {fileID: 22100000, guid: d45608f86d7a35b4682579fd848d66cb, type: 2}
   _futureControllerOverride: {fileID: 22100000, guid: 6c2e796d73ceb7342ae85f52222c53e9, type: 2}
@@ -309,7 +308,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 80807532}
   _flashDuration: 0.1
   _flashColor: {r: 1, g: 0, b: 0, a: 1}
-  _destroyedOnDeath: 1
+  _destroyedOnDeath: 0
   OnHit:
     m_PersistentCalls:
       m_Calls: []
@@ -12317,6 +12316,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &624101324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624101325}
+  - component: {fileID: 624101326}
+  m_Layer: 0
+  m_Name: RandomBulletAttack
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624101325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624101324}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 80807529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624101326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624101324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fbcbd4d48a9674184995a7fbba5b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canExecuteConsecutive: 1
+  _delayAfterAttack: 2
+  _bulletSpawnPosition: {fileID: 750042040}
+  OnAttackFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  _attackDuration: 3
+  _bulletDelay: 0.2
 --- !u!1001 &668934743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13363,7 +13414,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.109375
+  orthographic size: 12.701636
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
