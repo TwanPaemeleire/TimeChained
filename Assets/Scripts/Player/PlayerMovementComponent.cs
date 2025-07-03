@@ -62,7 +62,7 @@ namespace Assets.Scripts.Player
 
                 if (_isFalling && !wasFalling)
                 {
-                    Debug.Log("Calling falling");
+                    _canDoubleJump = true;
                     _isJumping = true;
                     OnFallBegin?.Invoke();
                 }
