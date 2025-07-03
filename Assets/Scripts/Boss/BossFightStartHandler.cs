@@ -1,3 +1,4 @@
+using Assets.Scripts.Player;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -40,6 +41,11 @@ namespace Assets.Scripts.Boss
         {
             OnPlayerStartEnteringArena?.Invoke();
 
+            PlayerAnimationHandler playerAnimHandler = player.GetComponent<PlayerAnimationHandler>();
+            playerAnimHandler.IsEnteringBossArena = true;
+            Animator playerAnimator = player.GetComponent<Animator>();
+            playerAnimator.SetBool("IsMoving", true);
+
             var playerInput = player.GetComponent<PlayerInput>();
             playerInput.DeactivateInput();
 
@@ -49,7 +55,7 @@ namespace Assets.Scripts.Boss
             _playerPushCollider.gameObject.SetActive(true);
 
             Vector3 newBoxPos = player.transform.position;
-            newBoxPos.x -= _playerPushCollider.size.x / 2 + _playerPushCollider.size.x;
+            newBoxPos.x -= _playerPushCollider.size.x / 2.0f + _playerPushCollider.size.x / 2.0f;
             _playerPushCollider.transform.position = newBoxPos;
 
             float elapsedTime = 0.0f;
@@ -73,6 +79,7 @@ namespace Assets.Scripts.Boss
             }
             _pixelPerfectCamera.assetsPPU = _targetAssetsPPU;
 
+            playerAnimator.SetBool("IsMoving", false);
             playerInput.ActivateInput();
             StartBossFight();
         }
