@@ -18,8 +18,13 @@ namespace Assets.Scripts.SharedLogic
         private bool _shotFromTrap = false;
         private bool _isBeingReturnedToPool = false;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        private void Start()
+        {
+            _bulletRenderer = GetComponent<SpriteRenderer>();
+            OnWorldSwap();
+        }
+
+        private void OnEnable()
         {
             _bulletRenderer = GetComponent<SpriteRenderer>();
             OnWorldSwap();
@@ -79,7 +84,7 @@ namespace Assets.Scripts.SharedLogic
             BulletsHandler.Instance.ReturnBullet(_bulletType, this.gameObject);
         }
 
-        void OnWorldSwap()
+        private void OnWorldSwap()
         {
             if(WorldSwapHandler.Instance.IsInCyberpunkWorld)
             {

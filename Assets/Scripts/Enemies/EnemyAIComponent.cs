@@ -63,7 +63,6 @@ namespace Assets.Scripts.Enemies
                 if (CurrentEnemyState == EnemyState.Dormant)
                 {
                     CurrentEnemyState = EnemyState.Patrolling;
-                    Debug.Log("Player spotted. Patrolling started");
                 }
             }
         }
