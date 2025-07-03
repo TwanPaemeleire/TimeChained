@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossFightScene.unity
     guid: f78f65a9b8900a64c84073c723629ed9
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: bf458e10f778243448fd75bdb71c98e6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
